@@ -1,0 +1,161 @@
+
+
+class HandleOneFileAction : public QObject
+{
+     Q_OBJECT
+//
+public:	 
+   HandleOneFileAction( QFileInfo hf ,  QObject* = 0 );
+   DocPage get_info();
+private:
+   QFileInfo fi;  /* the file to handle */
+   DocPage dd;
+signals:
+   void ready(int);
+public slots:
+
+};
+
+
+
+
+
+
+
+HandleOneFileAction::HandleOneFileAction( QFileInfo hf  ,  QObject* parent  )
+	: QObject( parent )
+{
+	setObjectName(QString("HandleOneFileAction"));
+	fi = hf;
+	int currentID = 389;
+    QString stream,titlerx,mime;
+    int fsize;
+     if (fi.isFile() && fi.isReadable() ) {
+		  const QString ext = fi.suffix().toLower();
+		         if (ext.contains("html") || ext.contains("htm")) {
+					     mime = QString("html");
+		                 QByteArray xx = StreamFromFileTXT(fi.absoluteFilePath());
+		                 stream = QString::fromAscii(xx.data());
+		                 titlerx = GrepTitle(stream.trimmed());
+		                 QTextDocument *docc = new QTextDocument();
+		                                docc->setHtml(stream);
+		                 stream = docc->toPlainText().trimmed();
+		                 fsize = fi.size();
+		                 cout << currentID << " register...." <<   qPrintable(fi.fileName()) <<  " filename" << endl;
+		                 cout << " title...." <<   qPrintable(titlerx) <<  " <tag> " << endl;
+		                 cout << currentID << " end...." <<   qPrintable(fi.fileName()) <<  " grep" << endl;
+				 } else if (ext.contains("pdf")) {
+					 
+					 
+					 
+					 
+				 }
+		 /* insert sql data here ..................*/
+		 dd.Title = titlerx;
+		 dd.mimetipe = mime;
+		 dd.sizebyte = fsize;
+		 dd.pagein = stream;
+		 dd.Name = fi.fileName();
+	   } else {
+
+
+	   }
+    
+}
+
+
+DocPage HandleOneFileAction::get_info()  {
+    return dd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+	setObjectName(QString("HandleOneFileAction"));
+	fi = hf;
+	int currentID = 389;
+    QString stream,titlerx,mime;
+    int fsize;
+     if (fi.isFile() && fi.isReadable() ) {
+		  const QString ext = fi.suffix().toLower();
+		         if (ext.contains("html") || ext.contains("htm")) {
+					     mime = QString("html");
+		                 QByteArray xx = StreamFromFileTXT(fi.absoluteFilePath());
+		                 stream = QString::fromAscii(xx.data());
+		                 titlerx = GrepTitle(stream.trimmed());
+		                 QTextDocument *docc = new QTextDocument();
+		                                docc->setHtml(stream);
+		                 stream = docc->toPlainText().trimmed();
+		                 fsize = fi.size();
+		                 cout << currentID << " register...." <<   qPrintable(fi.fileName()) <<  " filename" << endl;
+		                 cout << " title...." <<   qPrintable(titlerx) <<  " <tag> " << endl;
+		                 cout << currentID << " end...." <<   qPrintable(fi.fileName()) <<  " grep" << endl;
+				 } else if (ext.contains("pdf")) {
+					 
+					 
+					 
+
+
+
+
+
+
+
+
+
+void Index_Dir_Doc::handleFile(const QString file , int trace ) {
+	QString stream,titlerx;
+	int fsize = 0;
+	QFileInfo fi = QFileInfo(file);
+	 if (fi.isFile() && fi.isReadable() ) {
+		  const QString ext = fi.suffix().toLower();
+		         if (ext.contains("eeeeeeeee") || ext.contains("html") || ext.contains("htm") || ext.contains("dddddd")) {
+		                 QByteArray xx = StreamFromFileTXT(fi.absoluteFilePath());
+		                 //////stream = QString::fromAscii(xx.data());
+		                 /////titlerx = GrepTitle(stream.trimmed());
+		                 QTextDocument *docc = new QTextDocument();
+		                                docc->setHtml(QString::fromAscii(xx.data()));
+		                 /////const QString txtr = docc->toPlainText().trimmed();
+		                 stream = docc->toPlainText().trimmed();
+		                 fsize = fi.size();
+		                 cout << trace << " register...." <<   qPrintable(fi.fileName()) <<  " filename" << endl;
+		                 cout << " title...." <<   qPrintable(titlerx) <<  " <tag> " << endl;
+		                 cout << trace << " end...." <<   qPrintable(fi.fileName()) <<  " grep" << endl;
+		                 return;
+				 } else if (ext.contains("pdf")) {
+					 
+					 
+					 
+					 
+				 }
+		  
+		 
+		 
+		 
+	 }
+	
+}
+
+const QString Index_Dir_Doc::GrepTitle(const QString htmlchunk ) {
+	
+	QString titler = QString("No title found!");
+	QRegExp expression( "title>(.*)</title", Qt::CaseInsensitive );
+    expression.setMinimal(true);
+    int iPosition = 0;
+    int canna = 0;
+    while( (iPosition = expression.indexIn( htmlchunk , iPosition )) != -1 ) {
+        QString semi1 = expression.cap( 1 );
+        titler = semi1.trimmed();
+        canna++;
+        iPosition += expression.matchedLength();
+    }
+	return titler;
+}
