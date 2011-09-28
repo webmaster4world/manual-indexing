@@ -1255,7 +1255,7 @@ fi
 
 QC_COMMAND=$0
 export QC_COMMAND
-QC_PROFILE=Manual_Finder.pro
+QC_PROFILE=Manual_Finder.01.pro
 export QC_PROFILE
 QC_QMAKE=$qm
 export QC_QMAKE
