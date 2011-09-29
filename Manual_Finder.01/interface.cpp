@@ -93,13 +93,18 @@ Interface::Interface( QWidget* parent )
 	
 	
 	Box_att.clear();
-	Box_att.insert(0,QStringList() << "http://www.google.com/" <<  "Google main index");
-	Box_att.insert(1,QStringList() << "http://www.php.net/manual/en/" <<  "PHP Manual online");
-	Box_att.insert(2,QStringList() << "http://dev.mysql.com/doc/" <<  "Mysql online manual");
-	Box_att.insert(3,QStringList() << "http://docs.python.org/" <<  "Python online manual");
-	Box_att.insert(4,QStringList() << "http://doc.qt.nokia.com/" <<  "QT4 online manual");
-	Box_att.insert(5,QStringList() << "http://www.w3.org/" <<  "W3C specification");
-	Box_att.insert(6,QStringList() << "http://aktuell.de.selfhtml.org/" <<  "Selfhtml german");
+	Box_att.insert(0,QStringList() << "http://www.google.com/" <<  "Online: Google main index");
+	Box_att.insert(1,QStringList() << "http://www.php.net/manual/en/" <<  "Online: PHP Manual online");
+	Box_att.insert(2,QStringList() << "http://dev.mysql.com/doc/" <<  "Online: Mysql online manual");
+	Box_att.insert(3,QStringList() << "http://docs.python.org/" <<  "Online: Python online manual");
+	Box_att.insert(4,QStringList() << "http://doc.qt.nokia.com/" <<  "Online: QT4 online manual");
+	Box_att.insert(5,QStringList() << "http://www.w3.org/" <<  "Online: W3C specification");
+	Box_att.insert(6,QStringList() << "http://aktuell.de.selfhtml.org/" <<  "Online: Selfhtml german");
+	Box_att.insert(7,QStringList() << "http://docs.wxwidgets.org/stable/" <<  "Online: wxWidgets 2.8.12");
+	Box_att.insert(8,QStringList() << "http://download.oracle.com/javase/6/docs/" <<  "Online: Java doc");
+	Box_att.insert(9,QStringList() << "http://www.zvon.org/xxl/xslfoReference/Output/index.html" <<  "Online: XSL FO reference");
+	Box_att.insert(10,QStringList() << "http://xmlgraphics.apache.org/fop/quickstartguide.html" <<  "Online: Apache fop reference");
+	
 	Logvisible(QString("Inizialise."));
 	
 	

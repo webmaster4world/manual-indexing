@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root userdate="domenica 07 maggio 2006 21:40" maxcoolnr="8" unixtime="1147030844" exportfrom="QExcel Converter SQL QT4.1.2 version 0.3 beta sqliteversion 3">
+<table name="Tabelle1" type="table" sql="CREATE TABLE Tabelle1 (Field_A TEXT,Field_B NUMMER,Field_C NUMMER,Field_D NUMMER,Field_E NUMMER,Field_F NUMMER,Field_G NUMMER,Field_Z NUMMER)">
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-4</row>
+<row name="Field_C" type="digit">-3</row>
+<row name="Field_D" type="digit">-2</row>
+<row name="Field_E" type="digit">-1</row>
+<row name="Field_F" type="digit">0</row>
+<row name="Field_G" type="digit">1</row>
+<row name="Field_Z" type="digit">1</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',-4,-3,-2,-1,0,1,1);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-3</row>
+<row name="Field_C" type="digit">-2</row>
+<row name="Field_D" type="digit">-1</row>
+<row name="Field_E" type="digit">0</row>
+<row name="Field_F" type="digit">1</row>
+<row name="Field_G" type="digit">2</row>
+<row name="Field_Z" type="digit">2</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',-3,-2,-1,0,1,2,2);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-2</row>
+<row name="Field_C" type="digit">-1</row>
+<row name="Field_D" type="digit">0</row>
+<row name="Field_E" type="digit">1</row>
+<row name="Field_F" type="digit">2</row>
+<row name="Field_G" type="digit">3</row>
+<row name="Field_Z" type="digit">3</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',-2,-1,0,1,2,3,3);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-1</row>
+<row name="Field_C" type="digit">0</row>
+<row name="Field_D" type="digit">1</row>
+<row name="Field_E" type="digit">2</row>
+<row name="Field_F" type="digit">3</row>
+<row name="Field_G" type="digit">4</row>
+<row name="Field_Z" type="digit">4</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',-1,0,1,2,3,4,4);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">0</row>
+<row name="Field_C" type="digit">1</row>
+<row name="Field_D" type="digit">2</row>
+<row name="Field_E" type="digit">3</row>
+<row name="Field_F" type="digit">4</row>
+<row name="Field_G" type="digit">5</row>
+<row name="Field_Z" type="digit">5</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',0,1,2,3,4,5,5);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">1</row>
+<row name="Field_C" type="digit">2</row>
+<row name="Field_D" type="digit">3</row>
+<row name="Field_E" type="digit">4</row>
+<row name="Field_F" type="digit">5</row>
+<row name="Field_G" type="digit">6</row>
+<row name="Field_Z" type="digit">6</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',1,2,3,4,5,6,6);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">2</row>
+<row name="Field_C" type="digit">3</row>
+<row name="Field_D" type="digit">4</row>
+<row name="Field_E" type="digit">5</row>
+<row name="Field_F" type="digit">6</row>
+<row name="Field_G" type="digit">7</row>
+<row name="Field_Z" type="digit">7</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',2,3,4,5,6,7,7);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">3</row>
+<row name="Field_C" type="digit">4</row>
+<row name="Field_D" type="digit">5</row>
+<row name="Field_E" type="digit">6</row>
+<row name="Field_F" type="digit">7</row>
+<row name="Field_G" type="digit">8</row>
+<row name="Field_Z" type="digit">8</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',3,4,5,6,7,8,8);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">4</row>
+<row name="Field_C" type="digit">5</row>
+<row name="Field_D" type="digit">6</row>
+<row name="Field_E" type="digit">7</row>
+<row name="Field_F" type="digit">8</row>
+<row name="Field_G" type="digit">9</row>
+<row name="Field_Z" type="digit">9</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',4,5,6,7,8,9,9);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">5</row>
+<row name="Field_C" type="digit">6</row>
+<row name="Field_D" type="digit">7</row>
+<row name="Field_E" type="digit">8</row>
+<row name="Field_F" type="digit">9</row>
+<row name="Field_G" type="digit">10</row>
+<row name="Field_Z" type="digit">10</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',5,6,7,8,9,10,10);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">6</row>
+<row name="Field_C" type="digit">7</row>
+<row name="Field_D" type="digit">8</row>
+<row name="Field_E" type="digit">9</row>
+<row name="Field_F" type="digit">10</row>
+<row name="Field_G" type="digit">11</row>
+<row name="Field_Z" type="digit">11</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',6,7,8,9,10,11,11);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">7</row>
+<row name="Field_C" type="digit">8</row>
+<row name="Field_D" type="digit">9</row>
+<row name="Field_E" type="digit">10</row>
+<row name="Field_F" type="digit">11</row>
+<row name="Field_G" type="digit">12</row>
+<row name="Field_Z" type="digit">12</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',7,8,9,10,11,12,12);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">8</row>
+<row name="Field_C" type="digit">9</row>
+<row name="Field_D" type="digit">10</row>
+<row name="Field_E" type="digit">11</row>
+<row name="Field_F" type="digit">12</row>
+<row name="Field_G" type="digit">13</row>
+<row name="Field_Z" type="digit">13</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',8,9,10,11,12,13,13);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">9</row>
+<row name="Field_C" type="digit">10</row>
+<row name="Field_D" type="digit">11</row>
+<row name="Field_E" type="digit">12</row>
+<row name="Field_F" type="digit">13</row>
+<row name="Field_G" type="digit">14</row>
+<row name="Field_Z" type="digit">14</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',9,10,11,12,13,14,14);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">10</row>
+<row name="Field_C" type="digit">11</row>
+<row name="Field_D" type="digit">12</row>
+<row name="Field_E" type="digit">13</row>
+<row name="Field_F" type="digit">14</row>
+<row name="Field_G" type="digit">15</row>
+<row name="Field_Z" type="digit">15</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',10,11,12,13,14,15,15);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">11</row>
+<row name="Field_C" type="digit">12</row>
+<row name="Field_D" type="digit">13</row>
+<row name="Field_E" type="digit">14</row>
+<row name="Field_F" type="digit">15</row>
+<row name="Field_G" type="digit">16</row>
+<row name="Field_Z" type="digit">16</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',11,12,13,14,15,16,16);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">12</row>
+<row name="Field_C" type="digit">13</row>
+<row name="Field_D" type="digit">14</row>
+<row name="Field_E" type="digit">15</row>
+<row name="Field_F" type="digit">16</row>
+<row name="Field_G" type="digit">17</row>
+<row name="Field_Z" type="digit">17</row>
+<sqlrow>INSERT INTO Tabelle1 VALUES ('Created on Openoffice',12,13,14,15,16,17,17);</sqlrow>
+</rows>
+</table>
+<table name="Tabelle2" type="table" sql="CREATE TABLE Tabelle2 (Field_A TEXT,Field_B NUMMER,Field_C NUMMER,Field_D NUMMER,Field_E NUMMER,Field_F NUMMER,Field_G NUMMER,Field_Z NUMMER)">
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-4</row>
+<row name="Field_C" type="digit">-3</row>
+<row name="Field_D" type="digit">-2</row>
+<row name="Field_E" type="digit">-1</row>
+<row name="Field_F" type="digit">0</row>
+<row name="Field_G" type="digit">1</row>
+<row name="Field_Z" type="digit">1</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',-4,-3,-2,-1,0,1,1);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-3</row>
+<row name="Field_C" type="digit">-2</row>
+<row name="Field_D" type="digit">-1</row>
+<row name="Field_E" type="digit">0</row>
+<row name="Field_F" type="digit">1</row>
+<row name="Field_G" type="digit">2</row>
+<row name="Field_Z" type="digit">2</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',-3,-2,-1,0,1,2,2);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-2</row>
+<row name="Field_C" type="digit">-1</row>
+<row name="Field_D" type="digit">0</row>
+<row name="Field_E" type="digit">1</row>
+<row name="Field_F" type="digit">2</row>
+<row name="Field_G" type="digit">3</row>
+<row name="Field_Z" type="digit">3</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',-2,-1,0,1,2,3,3);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-1</row>
+<row name="Field_C" type="digit">0</row>
+<row name="Field_D" type="digit">1</row>
+<row name="Field_E" type="digit">2</row>
+<row name="Field_F" type="digit">3</row>
+<row name="Field_G" type="digit">4</row>
+<row name="Field_Z" type="digit">4</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',-1,0,1,2,3,4,4);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">0</row>
+<row name="Field_C" type="digit">1</row>
+<row name="Field_D" type="digit">2</row>
+<row name="Field_E" type="digit">3</row>
+<row name="Field_F" type="digit">4</row>
+<row name="Field_G" type="digit">5</row>
+<row name="Field_Z" type="digit">5</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',0,1,2,3,4,5,5);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">1</row>
+<row name="Field_C" type="digit">2</row>
+<row name="Field_D" type="digit">3</row>
+<row name="Field_E" type="digit">4</row>
+<row name="Field_F" type="digit">5</row>
+<row name="Field_G" type="digit">6</row>
+<row name="Field_Z" type="digit">6</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',1,2,3,4,5,6,6);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">2</row>
+<row name="Field_C" type="digit">3</row>
+<row name="Field_D" type="digit">4</row>
+<row name="Field_E" type="digit">5</row>
+<row name="Field_F" type="digit">6</row>
+<row name="Field_G" type="digit">7</row>
+<row name="Field_Z" type="digit">7</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',2,3,4,5,6,7,7);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">3</row>
+<row name="Field_C" type="digit">4</row>
+<row name="Field_D" type="digit">5</row>
+<row name="Field_E" type="digit">6</row>
+<row name="Field_F" type="digit">7</row>
+<row name="Field_G" type="digit">8</row>
+<row name="Field_Z" type="digit">8</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',3,4,5,6,7,8,8);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">4</row>
+<row name="Field_C" type="digit">5</row>
+<row name="Field_D" type="digit">6</row>
+<row name="Field_E" type="digit">7</row>
+<row name="Field_F" type="digit">8</row>
+<row name="Field_G" type="digit">9</row>
+<row name="Field_Z" type="digit">9</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',4,5,6,7,8,9,9);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">5</row>
+<row name="Field_C" type="digit">6</row>
+<row name="Field_D" type="digit">7</row>
+<row name="Field_E" type="digit">8</row>
+<row name="Field_F" type="digit">9</row>
+<row name="Field_G" type="digit">10</row>
+<row name="Field_Z" type="digit">10</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',5,6,7,8,9,10,10);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">6</row>
+<row name="Field_C" type="digit">7</row>
+<row name="Field_D" type="digit">8</row>
+<row name="Field_E" type="digit">9</row>
+<row name="Field_F" type="digit">10</row>
+<row name="Field_G" type="digit">11</row>
+<row name="Field_Z" type="digit">11</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',6,7,8,9,10,11,11);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">7</row>
+<row name="Field_C" type="digit">8</row>
+<row name="Field_D" type="digit">9</row>
+<row name="Field_E" type="digit">10</row>
+<row name="Field_F" type="digit">11</row>
+<row name="Field_G" type="digit">12</row>
+<row name="Field_Z" type="digit">12</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',7,8,9,10,11,12,12);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">8</row>
+<row name="Field_C" type="digit">9</row>
+<row name="Field_D" type="digit">10</row>
+<row name="Field_E" type="digit">11</row>
+<row name="Field_F" type="digit">12</row>
+<row name="Field_G" type="digit">13</row>
+<row name="Field_Z" type="digit">13</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',8,9,10,11,12,13,13);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">9</row>
+<row name="Field_C" type="digit">10</row>
+<row name="Field_D" type="digit">11</row>
+<row name="Field_E" type="digit">12</row>
+<row name="Field_F" type="digit">13</row>
+<row name="Field_G" type="digit">14</row>
+<row name="Field_Z" type="digit">14</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',9,10,11,12,13,14,14);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">10</row>
+<row name="Field_C" type="digit">11</row>
+<row name="Field_D" type="digit">12</row>
+<row name="Field_E" type="digit">13</row>
+<row name="Field_F" type="digit">14</row>
+<row name="Field_G" type="digit">15</row>
+<row name="Field_Z" type="digit">15</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',10,11,12,13,14,15,15);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">11</row>
+<row name="Field_C" type="digit">12</row>
+<row name="Field_D" type="digit">13</row>
+<row name="Field_E" type="digit">14</row>
+<row name="Field_F" type="digit">15</row>
+<row name="Field_G" type="digit">16</row>
+<row name="Field_Z" type="digit">16</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',11,12,13,14,15,16,16);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">12</row>
+<row name="Field_C" type="digit">13</row>
+<row name="Field_D" type="digit">14</row>
+<row name="Field_E" type="digit">15</row>
+<row name="Field_F" type="digit">16</row>
+<row name="Field_G" type="digit">17</row>
+<row name="Field_Z" type="digit">17</row>
+<sqlrow>INSERT INTO Tabelle2 VALUES ('Created on Openoffice',12,13,14,15,16,17,17);</sqlrow>
+</rows>
+</table>
+<table name="Tabelle3" type="table" sql="CREATE TABLE Tabelle3 (Field_A TEXT,Field_B NUMMER,Field_C NUMMER,Field_D NUMMER,Field_E NUMMER,Field_F NUMMER,Field_G NUMMER,Field_Z NUMMER)">
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-4</row>
+<row name="Field_C" type="digit">-3</row>
+<row name="Field_D" type="digit">-2</row>
+<row name="Field_E" type="digit">-1</row>
+<row name="Field_F" type="digit">0</row>
+<row name="Field_G" type="digit">1</row>
+<row name="Field_Z" type="digit">1</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',-4,-3,-2,-1,0,1,1);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-3</row>
+<row name="Field_C" type="digit">-2</row>
+<row name="Field_D" type="digit">-1</row>
+<row name="Field_E" type="digit">0</row>
+<row name="Field_F" type="digit">1</row>
+<row name="Field_G" type="digit">2</row>
+<row name="Field_Z" type="digit">2</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',-3,-2,-1,0,1,2,2);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-2</row>
+<row name="Field_C" type="digit">-1</row>
+<row name="Field_D" type="digit">0</row>
+<row name="Field_E" type="digit">1</row>
+<row name="Field_F" type="digit">2</row>
+<row name="Field_G" type="digit">3</row>
+<row name="Field_Z" type="digit">3</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',-2,-1,0,1,2,3,3);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">-1</row>
+<row name="Field_C" type="digit">0</row>
+<row name="Field_D" type="digit">1</row>
+<row name="Field_E" type="digit">2</row>
+<row name="Field_F" type="digit">3</row>
+<row name="Field_G" type="digit">4</row>
+<row name="Field_Z" type="digit">4</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',-1,0,1,2,3,4,4);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">0</row>
+<row name="Field_C" type="digit">1</row>
+<row name="Field_D" type="digit">2</row>
+<row name="Field_E" type="digit">3</row>
+<row name="Field_F" type="digit">4</row>
+<row name="Field_G" type="digit">5</row>
+<row name="Field_Z" type="digit">5</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',0,1,2,3,4,5,5);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">1</row>
+<row name="Field_C" type="digit">2</row>
+<row name="Field_D" type="digit">3</row>
+<row name="Field_E" type="digit">4</row>
+<row name="Field_F" type="digit">5</row>
+<row name="Field_G" type="digit">6</row>
+<row name="Field_Z" type="digit">6</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',1,2,3,4,5,6,6);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">2</row>
+<row name="Field_C" type="digit">3</row>
+<row name="Field_D" type="digit">4</row>
+<row name="Field_E" type="digit">5</row>
+<row name="Field_F" type="digit">6</row>
+<row name="Field_G" type="digit">7</row>
+<row name="Field_Z" type="digit">7</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',2,3,4,5,6,7,7);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">3</row>
+<row name="Field_C" type="digit">4</row>
+<row name="Field_D" type="digit">5</row>
+<row name="Field_E" type="digit">6</row>
+<row name="Field_F" type="digit">7</row>
+<row name="Field_G" type="digit">8</row>
+<row name="Field_Z" type="digit">8</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',3,4,5,6,7,8,8);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">4</row>
+<row name="Field_C" type="digit">5</row>
+<row name="Field_D" type="digit">6</row>
+<row name="Field_E" type="digit">7</row>
+<row name="Field_F" type="digit">8</row>
+<row name="Field_G" type="digit">9</row>
+<row name="Field_Z" type="digit">9</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',4,5,6,7,8,9,9);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">5</row>
+<row name="Field_C" type="digit">6</row>
+<row name="Field_D" type="digit">7</row>
+<row name="Field_E" type="digit">8</row>
+<row name="Field_F" type="digit">9</row>
+<row name="Field_G" type="digit">10</row>
+<row name="Field_Z" type="digit">10</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',5,6,7,8,9,10,10);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">6</row>
+<row name="Field_C" type="digit">7</row>
+<row name="Field_D" type="digit">8</row>
+<row name="Field_E" type="digit">9</row>
+<row name="Field_F" type="digit">10</row>
+<row name="Field_G" type="digit">11</row>
+<row name="Field_Z" type="digit">11</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',6,7,8,9,10,11,11);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">7</row>
+<row name="Field_C" type="digit">8</row>
+<row name="Field_D" type="digit">9</row>
+<row name="Field_E" type="digit">10</row>
+<row name="Field_F" type="digit">11</row>
+<row name="Field_G" type="digit">12</row>
+<row name="Field_Z" type="digit">12</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',7,8,9,10,11,12,12);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">8</row>
+<row name="Field_C" type="digit">9</row>
+<row name="Field_D" type="digit">10</row>
+<row name="Field_E" type="digit">11</row>
+<row name="Field_F" type="digit">12</row>
+<row name="Field_G" type="digit">13</row>
+<row name="Field_Z" type="digit">13</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',8,9,10,11,12,13,13);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">9</row>
+<row name="Field_C" type="digit">10</row>
+<row name="Field_D" type="digit">11</row>
+<row name="Field_E" type="digit">12</row>
+<row name="Field_F" type="digit">13</row>
+<row name="Field_G" type="digit">14</row>
+<row name="Field_Z" type="digit">14</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',9,10,11,12,13,14,14);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">10</row>
+<row name="Field_C" type="digit">11</row>
+<row name="Field_D" type="digit">12</row>
+<row name="Field_E" type="digit">13</row>
+<row name="Field_F" type="digit">14</row>
+<row name="Field_G" type="digit">15</row>
+<row name="Field_Z" type="digit">15</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',10,11,12,13,14,15,15);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">11</row>
+<row name="Field_C" type="digit">12</row>
+<row name="Field_D" type="digit">13</row>
+<row name="Field_E" type="digit">14</row>
+<row name="Field_F" type="digit">15</row>
+<row name="Field_G" type="digit">16</row>
+<row name="Field_Z" type="digit">16</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',11,12,13,14,15,16,16);</sqlrow>
+</rows>
+<rows>
+<row name="Field_A" type="string">Created on Openoffice</row>
+<row name="Field_B" type="digit">12</row>
+<row name="Field_C" type="digit">13</row>
+<row name="Field_D" type="digit">14</row>
+<row name="Field_E" type="digit">15</row>
+<row name="Field_F" type="digit">16</row>
+<row name="Field_G" type="digit">17</row>
+<row name="Field_Z" type="digit">17</row>
+<sqlrow>INSERT INTO Tabelle3 VALUES ('Created on Openoffice',12,13,14,15,16,17,17);</sqlrow>
+</rows>
+</table>
+</root>
