@@ -312,6 +312,7 @@ inline QString gethtmlFrompdf(const QString fullFileName)
 							/* some error */
 						return inside;
 						} else {
+							/* ok remove all tmp file and clean */
 							QString htmlchunk = StreamFromFile(htmlF);
 							/* clean dir */
 							       QFile suor(htmlF); 

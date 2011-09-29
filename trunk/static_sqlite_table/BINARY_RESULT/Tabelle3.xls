@@ -1,0 +1,200 @@
+<html xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ivis="urn:my-scripts" xmlns:trans="urn:translator" xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x2="http://schemas.microsoft.com/office/excel/2003/xml" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:c="urn:schemas-microsoft-com:office:component:spreadsheet"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Update domenica 07 maggio 2006 21:40</title>
+<style>
+			th { color:black; font-style:bold; font-size:14pt; }
+			td { mso-style-name: normal; mso-numberformat:general;
+				 vertical-align: bottom;
+				font-family:arial; font-size:10pt; color:navy;}
+			td.num { vnd.ms-excel.numberformat:#,##0.00; color:red; text-align: right; }
+    </style>
+</head>
+  <body>
+<table>
+  <thead>
+<tr>
+    <th>Field_A</th>
+    <th>Field_B</th>
+    <th>Field_C</th>
+    <th>Field_D</th>
+    <th>Field_E</th>
+    <th>Field_F</th>
+    <th>Field_G</th>
+    <th>Field_Z</th>
+</tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="-4">-4</td>
+    <td class="num" x:num="-3">-3</td>
+    <td class="num" x:num="-2">-2</td>
+    <td class="num" x:num="-1">-1</td>
+    <td class="num" x:num="0">0</td>
+    <td class="num" x:num="1">1</td>
+    <td class="num" x:num="1">1</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="-3">-3</td>
+    <td class="num" x:num="-2">-2</td>
+    <td class="num" x:num="-1">-1</td>
+    <td class="num" x:num="0">0</td>
+    <td class="num" x:num="1">1</td>
+    <td class="num" x:num="2">2</td>
+    <td class="num" x:num="2">2</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="-2">-2</td>
+    <td class="num" x:num="-1">-1</td>
+    <td class="num" x:num="0">0</td>
+    <td class="num" x:num="1">1</td>
+    <td class="num" x:num="2">2</td>
+    <td class="num" x:num="3">3</td>
+    <td class="num" x:num="3">3</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="-1">-1</td>
+    <td class="num" x:num="0">0</td>
+    <td class="num" x:num="1">1</td>
+    <td class="num" x:num="2">2</td>
+    <td class="num" x:num="3">3</td>
+    <td class="num" x:num="4">4</td>
+    <td class="num" x:num="4">4</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="0">0</td>
+    <td class="num" x:num="1">1</td>
+    <td class="num" x:num="2">2</td>
+    <td class="num" x:num="3">3</td>
+    <td class="num" x:num="4">4</td>
+    <td class="num" x:num="5">5</td>
+    <td class="num" x:num="5">5</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="1">1</td>
+    <td class="num" x:num="2">2</td>
+    <td class="num" x:num="3">3</td>
+    <td class="num" x:num="4">4</td>
+    <td class="num" x:num="5">5</td>
+    <td class="num" x:num="6">6</td>
+    <td class="num" x:num="6">6</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="2">2</td>
+    <td class="num" x:num="3">3</td>
+    <td class="num" x:num="4">4</td>
+    <td class="num" x:num="5">5</td>
+    <td class="num" x:num="6">6</td>
+    <td class="num" x:num="7">7</td>
+    <td class="num" x:num="7">7</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="3">3</td>
+    <td class="num" x:num="4">4</td>
+    <td class="num" x:num="5">5</td>
+    <td class="num" x:num="6">6</td>
+    <td class="num" x:num="7">7</td>
+    <td class="num" x:num="8">8</td>
+    <td class="num" x:num="8">8</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="4">4</td>
+    <td class="num" x:num="5">5</td>
+    <td class="num" x:num="6">6</td>
+    <td class="num" x:num="7">7</td>
+    <td class="num" x:num="8">8</td>
+    <td class="num" x:num="9">9</td>
+    <td class="num" x:num="9">9</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="5">5</td>
+    <td class="num" x:num="6">6</td>
+    <td class="num" x:num="7">7</td>
+    <td class="num" x:num="8">8</td>
+    <td class="num" x:num="9">9</td>
+    <td class="num" x:num="10">10</td>
+    <td class="num" x:num="10">10</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="6">6</td>
+    <td class="num" x:num="7">7</td>
+    <td class="num" x:num="8">8</td>
+    <td class="num" x:num="9">9</td>
+    <td class="num" x:num="10">10</td>
+    <td class="num" x:num="11">11</td>
+    <td class="num" x:num="11">11</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="7">7</td>
+    <td class="num" x:num="8">8</td>
+    <td class="num" x:num="9">9</td>
+    <td class="num" x:num="10">10</td>
+    <td class="num" x:num="11">11</td>
+    <td class="num" x:num="12">12</td>
+    <td class="num" x:num="12">12</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="8">8</td>
+    <td class="num" x:num="9">9</td>
+    <td class="num" x:num="10">10</td>
+    <td class="num" x:num="11">11</td>
+    <td class="num" x:num="12">12</td>
+    <td class="num" x:num="13">13</td>
+    <td class="num" x:num="13">13</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="9">9</td>
+    <td class="num" x:num="10">10</td>
+    <td class="num" x:num="11">11</td>
+    <td class="num" x:num="12">12</td>
+    <td class="num" x:num="13">13</td>
+    <td class="num" x:num="14">14</td>
+    <td class="num" x:num="14">14</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="10">10</td>
+    <td class="num" x:num="11">11</td>
+    <td class="num" x:num="12">12</td>
+    <td class="num" x:num="13">13</td>
+    <td class="num" x:num="14">14</td>
+    <td class="num" x:num="15">15</td>
+    <td class="num" x:num="15">15</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="11">11</td>
+    <td class="num" x:num="12">12</td>
+    <td class="num" x:num="13">13</td>
+    <td class="num" x:num="14">14</td>
+    <td class="num" x:num="15">15</td>
+    <td class="num" x:num="16">16</td>
+    <td class="num" x:num="16">16</td>
+    </tr>
+    <tr>
+    <td x:str="Created on Openoffice">Created on Openoffice</td>
+    <td class="num" x:num="12">12</td>
+    <td class="num" x:num="13">13</td>
+    <td class="num" x:num="14">14</td>
+    <td class="num" x:num="15">15</td>
+    <td class="num" x:num="16">16</td>
+    <td class="num" x:num="17">17</td>
+    <td class="num" x:num="17">17</td>
+    </tr>
+  </tbody>
+</table>
+  </body>
+</html>
