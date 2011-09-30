@@ -51,7 +51,7 @@ class Index_Dir_Doc  : public QObject
      Q_OBJECT
 //
 public:	
-  explicit Index_Dir_Doc( QObject* = 0 );
+   explicit Index_Dir_Doc( QObject* = 0 );
    void Setdir(const QString d);
    bool init_db();
    QSqlDatabase get_db() {

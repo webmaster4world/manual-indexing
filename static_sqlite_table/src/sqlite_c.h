@@ -5,7 +5,7 @@
 #include "sqlite3.h"
 #include "sqliteInt.h"
  
-#include "_tools.h"
+
 
 #define TIMELIMITQUERY 1000
 

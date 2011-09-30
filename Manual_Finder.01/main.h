@@ -15,7 +15,7 @@
 #include <QSqlRecord>
 #include <QNetworkInterface>
 
-#define _PROGRAM_NAME_ "Indexing Manual pdf & html page  by  Peter Hohl"
+#define _PROGRAM_NAME_ "Indexing Manual pdf & html page  by  Peter Hohl svn 89"
 #define _PROGRAM_NAME_DOMAINE_ "qmake.net"
 #define _ORGANIZATION_NAME_ "Vivi e lascia vivere"
 
@@ -130,16 +130,16 @@ inline QString execResult(const QString cmd)
 
 extern inline QString squote( QString t )
 {
- QString text = t;
- text.replace("\t", " ");
- text.replace("\n", " ");
- text.replace("\r", " ");
- text.replace('"', "`");
- text.replace("'", "`");
- return text.trimmed();
+ QString chuck = t;
+ chuck.replace("\t", " ");
+ chuck.replace("\n", " ");
+ chuck.replace("\r", " ");
+ chuck.replace('"', "`");
+ chuck.replace("'", "`");
+ return chuck.trimmed();
 } 
 
-inline QString catTextFromHtml( QString body )
+inline QString catchuckFromHtml( QString body )
 {
 	body.replace("&nbsp;"," ");
 	body.replace("<br>"," ##l45##");
@@ -151,7 +151,7 @@ inline QString catTextFromHtml( QString body )
 }
 
 
-inline QString catTextFromHtml_old( QString body )
+inline QString catchuckFromHtml_old( QString body )
 {
     body.replace("&nbsp;"," ");
     body.replace(QRegExp("<script(.)[^>]",Qt::CaseInsensitive), "?###cdatastart###? script-tag-attribute ");
@@ -289,14 +289,14 @@ inline QString gethtmlFrompdf(const QString fullFileName)
      
         QString pdfconverer,ppwd,cmread;
 		#if defined Q_WS_WIN
-		pdfconverer = execResult("which pdftotext");
+		pdfconverer = execResult("which pdftochuck");
 		#endif
 		#if defined Q_WS_X11
-		pdfconverer = execResult("which pdftotext");
+		pdfconverer = execResult("which pdftochuck");
 		ppwd = execResult("pwd");
 		#endif
 		#if defined Q_WS_MAC
-		pdfconverer = execResult("which pdftotext");
+		pdfconverer = execResult("which pdftochuck");
 		#endif
 		cmread = QString("%1 -htmlmeta -enc UTF-8 aa.pdf aa.html").arg(pdfconverer);
      if  (!pdfconverer.isEmpty()) {
