@@ -49,7 +49,7 @@ void LoadPageExtend::run()
 										 ////QTextDocument *docc = new QTextDocument(); 
 										 /* QTextDocument is not fast to extract text from html file !!! */
 									   titlerx = GrepTitle(stream.trimmed());
-									   stream = catTextFromHtml(stream.trimmed());
+									   stream = catchuckFromHtml(stream.trimmed());
 									   if ( titlerx == _DEAFAULT_TITLE_) {
 										   insertdb = false;
 									   }
@@ -73,7 +73,7 @@ void LoadPageExtend::run()
 							  stream = gethtmlFrompdf(fi.absoluteFilePath());
 							  titlerx = QString("PDF: %1").arg(GrepTitle(stream.trimmed()));
 							  
-							  stream = catTextFromHtml(stream.trimmed());
+							  stream = catchuckFromHtml(stream.trimmed());
 							  if ( stream == _NULL_) {
 								  insertdb = false;
 							  }

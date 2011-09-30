@@ -94,6 +94,8 @@ Interface::Interface( QWidget* parent )
 	
 	Box_att.clear();
 	Box_att.insert(0,QStringList() << "http://www.google.com/" <<  "Online: Google main index");
+	Box_att.insert(11,QStringList() << "http://www.google.com/codesearch" <<  "Online: code search");
+	
 	Box_att.insert(1,QStringList() << "http://www.php.net/manual/en/" <<  "Online: PHP Manual online");
 	Box_att.insert(2,QStringList() << "http://dev.mysql.com/doc/" <<  "Online: Mysql online manual");
 	Box_att.insert(3,QStringList() << "http://docs.python.org/" <<  "Online: Python online manual");
@@ -438,6 +440,10 @@ void Interface::Load_Connector()
 
 void Interface::linkactive( const QString a ,const QString b ,const QString c )
 {
+	
+	Q_UNUSED(b);
+	Q_UNUSED(c);
+	
 	if (a!=_NULL_) {
 	QString message = a; ////QString("Hover action link = %1  text=%3 title=%2").arg(a,b,c);
 	Logvisible(message);
