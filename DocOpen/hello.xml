@@ -1,0 +1,22 @@
+<?xml version="1.0"?> 
+<base id="22383"> 
+  <a_pazienti query="SELECT * FROM a_pazienti WHERE IDPaziente =22383 LIMIT 1" /> 
+  <result id="0"> 
+    <IDPaziente>22383</IDPaziente> 
+    <Nome>ANTONIA</Nome> 
+    <Cognome>VILLA</Cognome> 
+    <Cap>20059</Cap> 
+    <Localita>VIMERCATE</Localita> 
+    <Prov>LC</Prov> 
+    <Indirizzo>VIA RENATO PELLEGATTA 18</Indirizzo> 
+    <TelefonoAbit>396260648</TelefonoAbit> 
+    <TelefonoUff></TelefonoUff> 
+    <TelefonoCell></TelefonoCell> 
+    <Fax></Fax> 
+    <CodFiscale>VLLNT36A56H052S</CodFiscale> 
+    <PartitaIva></PartitaIva> 
+    <LuogoNascita>VIMERCATE</LuogoNascita> 
+    <DataNascita>01/16/36 00:00:00</DataNascita> 
+    <email></email> 
+  </result> 
+</base>
