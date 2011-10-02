@@ -27,6 +27,7 @@
 #include <QtCore>
 #include <QDebug>
 #include <QObject>
+#include <QFileInfo>
 
 /* remote item if need */
 #include "getitem.h"
@@ -35,6 +36,59 @@
 #define MMVERSION 2
 #define _NULL_ \
              QString("")  
+             
+#define _RTF_ \
+             QString(".rtf")      
+             
+using namespace std;
+             
+typedef enum
+{  
+  Rhtml = 100,
+  Rrtf = 200,
+  Rxml = 300,
+  Rxslfo = 400,
+  Rtext = 500,
+  Roasi = 600,
+  Runknow = 1000
+} RICHMIME;
+
+
+static inline RICHMIME Rmime( const QString filec )
+{
+    QFileInfo info(filec);
+    RICHMIME x = Runknow; /* default  load as text */
+    const QString ext = info.suffix().toLower();
+    QString FNAME = info.suffix().toLower();
+            FNAME.prepend(QString("."));
+   ////cout << "1 RICHMIME RICHMIME RICHMIME ->" <<  qPrintable(FNAME) <<  endl;
+    //////cout << "2 RICHMIME RICHMIME RICHMIME ->" <<  qPrintable(filec) <<  endl;  
+            
+      if ( FNAME.contains(".txt",Qt::CaseSensitive) ||
+              FNAME.contains(".h",Qt::CaseSensitive) ||
+              FNAME.contains(".cc",Qt::CaseSensitive) ||
+              FNAME.contains(".cpp",Qt::CaseSensitive) ||
+              FNAME.contains(".ch",Qt::CaseSensitive) ) {
+		x = Rtext;  /* associate to plain text */
+	} else if (FNAME.contains(".html",Qt::CaseSensitive)  ||
+	           FNAME.contains(".htm",Qt::CaseSensitive) || 
+	           FNAME.contains(".phtml",Qt::CaseSensitive) )  {
+		x = Rhtml;   /* associate to html */
+	}  else if ( ext ==  "rtf" ||  ext ==  "rtfo" )  {
+		x = Rrtf;   /* associate to rtf other extension from mac!!!!  */
+	}  else if (FNAME.contains(".odt",Qt::CaseSensitive) || 
+	            FNAME.contains(".ott",Qt::CaseSensitive) || 
+	           FNAME.contains(".sxw",Qt::CaseSensitive) )  {
+		x = Roasi;   /* associate to  openoffice standard  */
+	}  else if (FNAME.contains(".fo",Qt::CaseSensitive) || 
+	           FNAME.contains(".fop",Qt::CaseSensitive) )  {
+		x = Rxslfo;   /* associate to  openoffice standard  */
+	}  else if (FNAME.contains(".xml",Qt::CaseSensitive) )  {
+		x = Rxml;   /* associate to  openoffice standard  */
+	}
+    return x;
+}
+
 
 
 class DocPage
@@ -108,6 +162,7 @@ protected:
   void run();
   signals:
     void setText(QString);
+    void setHtml(QString);
 private:
     DocPage Udoc;
     QObject* receiver;

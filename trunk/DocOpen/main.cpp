@@ -43,6 +43,7 @@ Q_IMPORT_PLUGIN(qtiff)
 int main( int argc, char ** argv )
 {
     QApplication a( argc, argv );
+    const QString argument = argv[1];
     a.setOrganizationName("Oasis Test Reader");
     a.setOrganizationDomain("QTuser");
     a.setApplicationName("Mini Office");
@@ -52,7 +53,7 @@ int main( int argc, char ** argv )
     #endif
     QTextEdit mw;
     mw.resize( 700, 450 );
-    RichTextIstance::self()->load(QString("hello.rtf"),&mw);
+    RichTextIstance::self()->load(argument,&mw);
     
     
     mw.show();

@@ -137,8 +137,8 @@ RTF::Reader::Reader()
 		functions["cpg"] = Function(&Reader::setFontCodepage);
 		functions["fcharset"] = Function(&Reader::setFontCharset);
 
-		functions["filetbl"] = Function(&Reader::ignoreGroup);
-		functions["colortbl"] = Function(&Reader::insertColor,850);
+		functions["filetbl"] = Function(&Reader::ignoreGroup); // ignoreGroup insertColor,850
+		functions["colortbl"] = Function(&Reader::ignoreGroup);
 		functions["stylesheet"] = Function(&Reader::ignoreGroup);
 		functions["info"] = Function(&Reader::ignoreGroup);
 		functions["*"] = Function(&Reader::ignoreGroup);
