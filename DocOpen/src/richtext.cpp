@@ -20,7 +20,8 @@
 
 
 #include "richtext.h"
-
+/* if only text or xml */
+#include "XML_Editor.h"
 /* remote item if need */
 #include "getitem.h"
 #include <QTextEdit>
@@ -70,6 +71,7 @@ void DocLoader::run()
 {
 	QFileInfo fi(Udoc.filefull);
 	QString inside = QString("Unable to read file %1").arg(fi.absoluteFilePath());
+	const QString FNAME = fi.fileName().toLower();
 	
 	QFile file(fi.absoluteFilePath()); 
 	cout << "fi.absoluteFilePath()->" <<  qPrintable(fi.absoluteFilePath()) <<  endl;
@@ -78,18 +80,21 @@ void DocLoader::run()
 	        exit();
 	        
 		}
-                
-   
     QString allchunk = _NULL_;
     int i=0;
     while (!file.atEnd()) {
         allchunk.append(file.readLine());
-        i++;
-        QString send = QString("Read line-> %1").arg(i);
-        cout << "Job->" <<  qPrintable(send) <<  endl;
+        ////i++;
+        ////QString send = QString("Read line-> %1").arg(i);
+        /////cout << "Job->" <<  qPrintable(send) <<  endl;
     }
     file.close();
-    emit setText(allchunk);
+    if ( FNAME.endsWith(".html",Qt::CaseInsensitive) ||
+         FNAME.endsWith(".htm",Qt::CaseInsensitive) ) {
+		emit setText(allchunk);
+	} else {
+		emit setText(allchunk);
+	}
 	exit();
 }
 
@@ -112,34 +117,43 @@ void RichTextIstance::load( const QString fi , QObject *sender ) {
 	
 	///////Q_UNUSED(sender);
 	QTextEdit *textedit = qobject_cast<QTextEdit *>(sender);
+	textedit->setAutoFormatting(QTextEdit::AutoNone);
+	
+	QTextDocument *document = textedit->document();
+	textedit->blockSignals(true);
+	document->blockSignals(true);
+	/* set a new */
+	////QDomDocument *doc = new QDomDocument(QString("Laoding text...."));
+	////textedit->setDocument(doc); /* free Highlighter */
 	cout << "Init RichTextIstance start ok.. load ->" <<  qPrintable(fi) <<  endl;
 	QFileInfo info(fi);
-	bool takefile = false;
-	const QString ext = info.suffix().toLower();
-	if (info.isFile() && info.isReadable()) {
-		                if (ext.contains("pdf") || 
-						 ext.contains("html") ||
-						 ext.contains("txt") ||
-						 ext.contains("cpp") ||
-						 ext.contains("rtf") ||
-						 ext.contains("htm")) {  /* openoffice ext */
-						 docentry.append(info.absolutePath());
-						 takefile = true;
-						 }
-	}
-	
-	if (takefile) {
+	////bool takefile = true;
+	RICHMIME mime = Rmime(info.absoluteFilePath());
+    QString ext = info.suffix().toLower();
+            ext.prepend(QString("."));
+    cout << "suffix ->" <<  qPrintable(ext) <<  endl;
+    cout << "associate mime ->" <<  mime <<  endl;
+    
+    /* typedef enum
+{  
+  Rhtml = 100,
+  Rrtf = 200,
+  Rxml = 300,
+  Rxslfo = 400,
+  Rtext = 500,
+  Roasi = 600,
+  Runknow = 1000
+} RICHMIME; */
+
 	DocPage current;
     current.filefull = info.absoluteFilePath();
     current.mimetipe = ext;
     current.sizebyte  = info.size();
-    const QString FNAME = info.fileName().toLower();
-    if ( FNAME.endsWith(".rtf",Qt::CaseInsensitive) ) {
+    
+    if (mime == Rrtf ) {
+		    cout << "Swap RTF" <<  endl;
+		    textedit->setAcceptRichText ( true );
            /* only rtf document !!! */
-           QTextDocument* document = textedit->document();
-	       textedit->blockSignals(true);
-	       document->blockSignals(true);
-	       
 	             QFile file(info.absoluteFilePath());
 				if (file.open(QIODevice::ReadOnly)) {
 					RTF::Reader reader;
@@ -148,25 +162,60 @@ void RichTextIstance::load( const QString fi , QObject *sender ) {
 					if (reader.hasError()) {
 						QMessageBox::warning(textedit, tr("Sorry"), reader.errorString());
 					}
-					document->setUndoRedoEnabled(true);
-					document->setModified(false);
-					document->blockSignals(false);
-					textedit->blockSignals(false);
+					
 				}
     
-     } else if ( FNAME.endsWith(".txt",Qt::CaseInsensitive) ||
-                 FNAME.endsWith(".h",Qt::CaseInsensitive) ||
-                 FNAME.endsWith(".cpp",Qt::CaseInsensitive) ||
-                 FNAME.endsWith(".cpp",Qt::CaseInsensitive) ||
-                 FNAME.endsWith(".xml",Qt::CaseInsensitive) ) {
+     } else if ( mime == Rtext ) {
+		           cout << "Swap Plain text" <<  endl;
+		           textedit->setAcceptRichText ( false );
+		           textedit->setLineWrapMode ( QTextEdit::NoWrap );
+					 /* swap edit modus */
+				   XmlHighlighter *highlight = new XmlHighlighter(textedit->document());
+				   Q_UNUSED(highlight);
+				   /////connect(textedit->verticalScrollBar(), SIGNAL(valueChanged(int)),textedit, SLOT(update()));
+                   /////connect(textedit, SIGNAL(textChanged()),textedit SLOT(update()));
+                   /* swap edit modus */
 				   /* start a new QThread to not frozen gui only text QTextDocument not like QThread */
 				   DocLoader *initdoc = new DocLoader();
 				   initdoc->Setting(sender,current);
 				   connect(initdoc, SIGNAL(setText(QString)),textedit, SLOT(setText(QString)));
+				   ////////connect(initdoc, SIGNAL(setHtml(QString)),textedit, SLOT(setHtml(QString)));
 				   initdoc->start(QThread::LowPriority);
+	   } else if ( mime == Rxml ) {
+					 /* swap edit modus */
+				   textedit->setAcceptRichText ( false );
+				   textedit->setLineWrapMode ( QTextEdit::NoWrap );
+					 cout << "Swap XML" <<  endl;
+				   XmlHighlighter *highlight = new XmlHighlighter(textedit->document());
+				   ////connect(textedit->verticalScrollBar(), SIGNAL(valueChanged(int)),textedit, SLOT(update()));
+                   ////connect(textedit, SIGNAL(textChanged()),textedit SLOT(update()));
+                   /* swap edit modus */
+				   /* start a new QThread to not frozen gui only text QTextDocument not like QThread */
+				   DocLoader *initdoc = new DocLoader();
+				   initdoc->Setting(sender,current);
+				   connect(initdoc, SIGNAL(setText(QString)),textedit, SLOT(setText(QString)));
+				   ////////connect(initdoc, SIGNAL(setHtml(QString)),textedit, SLOT(setHtml(QString)));
+				   initdoc->start(QThread::LowPriority);
+				   Q_UNUSED(highlight);
+	   }  else if ( mime == Roasi ) {
+					 /* swap edit modus */
+				 
+				   cout << "Swap oasi" <<  endl;
+				   ////DocLoader *initdoc = new DocLoader();
+				   /////initdoc->Setting(sender,current);
+				   /////connect(initdoc, SIGNAL(setText(QString)),textedit, SLOT(setText(QString)));
+				   ////////connect(initdoc, SIGNAL(setHtml(QString)),textedit, SLOT(setHtml(QString)));
+				   /////initdoc->start(QThread::LowPriority);
+				   ////////Q_UNUSED(highlight);
 	   }
 		   
-    }
+    
+    
+    /* free all connection */
+    document->setUndoRedoEnabled(false);
+	document->setModified(true);
+	document->blockSignals(false);
+	textedit->blockSignals(false);
 	
 }
 

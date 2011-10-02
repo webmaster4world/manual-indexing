@@ -52,15 +52,18 @@ contains(CONFIG, static): {
         }
 }
 
-# Input
 HEADERS += src/richtext.h \
+           src/XML_Editor.h \
            src/load_remote_item/getitem.h \
+           src/oasi/xsl_fo_colorname.h \
            src/rtf/rtf_reader.h \
            src/rtf/tokenizer.h \
            src/rtf/writer.h
 SOURCES += main.cpp \
            src/richtext.cpp \
+           src/XML_Editor.cpp \
            src/load_remote_item/getitem.cpp \
+           src/oasi/xsl_fo_colorname.cpp \
            src/rtf/rtf_reader.cpp \
            src/rtf/tokenizer.cpp \
            src/rtf/writer.cpp
