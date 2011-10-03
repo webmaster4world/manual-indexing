@@ -31,6 +31,8 @@
 
 /* remote item if need */
 #include "getitem.h"
+/* oasi and xsl-fo doc */
+#include "XSL-FO_colorname.h"
 
 #define MAGICNUMMERDATA 0x48611928
 #define MMVERSION 2
@@ -188,7 +190,7 @@ public:
   void load( const QString fi , QObject *sender ); /* file to load */
 
 protected:	 
-
+    TColor::XSL_FO_ColorName *Color;
  
 private:
     RichTextIstance(int mi);

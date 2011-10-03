@@ -34,6 +34,8 @@
 
 /* rtf read document */
 #include "rtf_reader.h"
+/* openoffice file format reader */
+#include "OOReader.h"
 
 
 DocPage::DocPage() {
@@ -52,11 +54,13 @@ DocPage& DocPage::operator=( const DocPage& d )
     mimetipe = d.mimetipe;
     filefull = d.filefull; 
     doc = d.doc;
-    ///return this;
+    return *this;
 }
 
 
 using namespace std;
+using namespace TColor;
+using namespace OASIREAD;
 
 
 
@@ -81,7 +85,7 @@ void DocLoader::run()
 	        
 		}
     QString allchunk = _NULL_;
-    int i=0;
+    ///////int i=0;
     while (!file.atEnd()) {
         allchunk.append(file.readLine());
         ////i++;
@@ -109,6 +113,9 @@ RichTextIstance* RichTextIstance::self()
 {
 	if ( !_self )
 	_self = new RichTextIstance(186458);
+	
+	
+	
 	return _self;
 }
 
@@ -199,8 +206,13 @@ void RichTextIstance::load( const QString fi , QObject *sender ) {
 				   Q_UNUSED(highlight);
 	   }  else if ( mime == Roasi ) {
 					 /* swap edit modus */
-				 
-				   cout << "Swap oasi" <<  endl;
+					 cout << "Swap oasi" <<  endl;
+					 OOReader *OpenofficeDoc = OOReader::doc(info.absoluteFilePath());
+					 OpenofficeDoc->writteln_on(sender);
+					 /////connect(OpenofficeDoc, SIGNAL(setHtml(QString)),textedit,SLOT(setText(QString)));				 
+					 
+				     //////textedit->setDocument(OpenofficeDoc->document());
+				     ////textedit->setHtml(OpenofficeDoc->html());
 				   ////DocLoader *initdoc = new DocLoader();
 				   /////initdoc->Setting(sender,current);
 				   /////connect(initdoc, SIGNAL(setText(QString)),textedit, SLOT(setText(QString)));
@@ -216,14 +228,17 @@ void RichTextIstance::load( const QString fi , QObject *sender ) {
 	document->setModified(true);
 	document->blockSignals(false);
 	textedit->blockSignals(false);
-	
+	QTextCursor m_cursor = QTextCursor(document);
+	m_cursor.movePosition(QTextCursor::Start);
+	textedit->moveCursor(QTextCursor::Start);
 }
 
 
 RichTextIstance::RichTextIstance( int mi )
-	: cicle(mi)
+	: QObject(new QObject()),cicle(mi)
 {
-	
+	setObjectName(QString("RichTextIstance"));
+	Color = XSL_FO_ColorName::initstate(objectName());
 	Load_Connector();
 }
 
