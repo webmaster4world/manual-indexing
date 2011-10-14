@@ -6,7 +6,7 @@
 #define XDEBUG 0
 
 
-
+/////////////  QVariant("BoolErrRecord")
 
 
 

@@ -38,6 +38,8 @@ public:
   Format format;
   unsigned columnSpan;
   unsigned rowSpan;
+  QVariant sender;
+  
 };
 
 };
@@ -53,6 +55,7 @@ Cell::Cell( Sheet* sheet, unsigned column, unsigned row )
   d->value      = Value::empty();
   d->columnSpan = 1;
   d->rowSpan    = 1;
+  d->sender   = QVariant();
 };
 
 Cell::~Cell()
@@ -111,9 +114,19 @@ Value Cell::value() const
   return d->value;
 }
 
-void Cell::setValue( const Value& value )
+QString Cell::sender() const
+{
+  return d->sender.value<QString>(); 
+}
+
+void Cell::setValue( const Value& value , QVariant v  )
 {
   d->value = value;
+  QString now = d->sender.value<QString>(); 
+  QString s = v.value<QString>(); 
+  now.append("/");
+  now.append(s);
+  d->sender = QVariant(now);
   // TODO mark the cell as dirty
 }
 
