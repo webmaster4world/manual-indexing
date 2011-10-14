@@ -16,7 +16,8 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, US
 */
-
+#include <QCoreApplication>
+#include <QDebug>
 #include "excel.h"
 #include "config.h"
 #include <iostream>
@@ -25,7 +26,7 @@
 #include <string>
 #include <map>
 #include <stdio.h> // memcpy
-
+#include <QChar>
 #include "pole.h"
 #include "sidewinder.h"
 
@@ -34,6 +35,12 @@ using namespace Sidewinder;
 static inline unsigned long readU16( const void* p )
 {
   const unsigned char* ptr = (const unsigned char*) p;
+  ///// p=0xc0000000
+  //////unsigned long nak = ptr[0]+(ptr[1]<<8);
+  ////return ptr[0]+(ptr[1]<<8);
+  ////QChar trap(nak);
+  ////QString er = QString::fromUtf16((const ushort*)nak);
+  /////////qDebug() << "readU16:->" << ptr << " s:" << nak;
   return ptr[0]+(ptr[1]<<8);
 }
 
@@ -163,6 +170,8 @@ void EString::setSize( unsigned s )
 EString EString::fromUnicodeString( const void* p, unsigned maxsize )
 {
   const unsigned char* data = (const unsigned char*) p;
+  /////qDebug() << "fromUnicodeString  p:" << p;
+  
   UString str = UString::null;
   
   unsigned len = readU16( data  );
@@ -170,6 +179,7 @@ EString EString::fromUnicodeString( const void* p, unsigned maxsize )
   
   bool unicode = flag & 0x01;
   bool richText = flag & 0x08;
+  bool asianP = flag & 0x04;
 
   unsigned formatRuns = 0;
   
@@ -177,11 +187,19 @@ EString EString::fromUnicodeString( const void* p, unsigned maxsize )
   
   unsigned size = unicode ? len*2 : len;
   
+  if( asianP )
+  {
+	  formatRuns = readU32(data + offset);
+	  offset += 4;
+  }
+  
   if( richText )
   {
     formatRuns = readU16( data + offset );
     offset += 2;
   }
+  
+  
   
   // find out total bytes used in this string
   size = 3; // length(2) + flag(1)
@@ -428,6 +446,10 @@ Record* Record::create( unsigned type )
 {
   Record* record = 0;
   
+  
+ 
+  
+  
   if( type == BOFRecord::id )
     record = new BOFRecord();
     
@@ -536,6 +558,7 @@ unsigned Record::position() const
 
 void Record::setData( unsigned size, const unsigned char* data )
 {
+	qDebug() << "Record::setData line:" << __LINE__;
 }
 
 void Record::dump( std::ostream& out ) const
@@ -578,7 +601,6 @@ void BackupRecord::setBackup( bool b )
 void BackupRecord::setData( unsigned size, const unsigned char* data )
 {
   if( size < 2 ) return;
-  
   unsigned flag = readU16( data );
   d->backup = flag != 0;
 }
@@ -3179,9 +3201,20 @@ ExcelReader::~ExcelReader()
 }
 
 Workbook* 
-ExcelReader::load(
+ExcelReader::loadBaseFile_Key2386R(
 const char* filename )
 {
+   qDebug() << "ExcelReader::loadBaseFile_Key2386R line:" << __LINE__;
+   qDebug() << "SSTRecord::id:" << SSTRecord::id;
+  qDebug() << "BlankRecord::id:" << BlankRecord::id;
+  qDebug() << "XFRecord::id:" << XFRecord::id;
+  qDebug() << "LabelSSTRecord::id:" << LabelSSTRecord::id;
+  qDebug() << "NumberRecord::id:" << NumberRecord::id;
+  qDebug() << "RowRecord::id:" << RowRecord::id;
+  qDebug() << "RStringRecord::id:" << RStringRecord::id;
+  
+  
+	
   POLE::Storage storage;
   if( !storage.open( filename ) )
   {
@@ -3207,7 +3240,7 @@ const char* filename )
   unsigned long stream_size = stream->size();
   
   std::cerr << stream_size << " stream_size" << std::endl;
-  
+  std::cerr << filename << " filename " << std::endl;
   
   // FIXME
   unsigned char buffer[65536];
@@ -3220,6 +3253,7 @@ const char* filename )
   while( stream->tell() < stream_size )
   {
     // get record type and data size
+   /////////bool permission = true;
     unsigned long pos = stream->tell();
     unsigned bytes_read = stream->read( buffer, 4 );
     if( bytes_read != 4 ) break;
@@ -3233,13 +3267,30 @@ const char* filename )
     
     // skip record type 0, this is just for filler
     if( type == 0 ) continue;
+    if( type == 224 ) continue;
+    if( type == 49 ) continue;
+    if( type == 1054 ) continue;
+    
+    if( type == 252 ) {
+		////permission = false;
+	}
+	
+	if( type == 515 ) {
+		//////permission = false;
+	}
+    
+    /* 515=number, 252=string, */
     
     // create the record using the factory
     Record* record = Record::create( type );
+    ////////std::cerr << type << " type " << std::endl;
+    
 
     if( record )
     {
       // setup the record and invoke handler
+      ///////std::cerr << "loop: type->" <<  type << " name-> " << record->name() << std::endl;
+      
       record->setVersion( version );
       record->setData( size, buffer );
       record->setPosition( pos );
@@ -3250,8 +3301,9 @@ const char* filename )
       if( bof ) if( bof->type() == BOFRecord::Workbook )
         version = bof->version();
 
-      if (XDEBUG == 1) 
+       if (XDEBUG == 1) {
          record->dump( std::cout );
+	   }
 
       delete record;
     }
@@ -3269,6 +3321,10 @@ const char* filename )
 void ExcelReader::handleRecord( Record* record )
 {
   if( !record ) return;
+  
+  
+  
+  
 
   handleBottomMargin( dynamic_cast<BottomMarginRecord*>( record ) );
   handleBoundSheet( dynamic_cast<BoundSheetRecord*>( record ) );
@@ -3286,7 +3342,7 @@ void ExcelReader::handleRecord( Record* record )
   handleMergedCells( dynamic_cast<MergedCellsRecord*>( record ) );
   handleMulBlank( dynamic_cast<MulBlankRecord*>( record ) );
   handleMulRK( dynamic_cast<MulRKRecord*>( record ) );
-  handleNumber( dynamic_cast<NumberRecord*>( record ) );
+  handleNumber( dynamic_cast<NumberRecord*>( record ) );  /* all number */
   handlePalette( dynamic_cast<PaletteRecord*>( record ) );
   handleRightMargin( dynamic_cast<RightMarginRecord*>( record ) );
   handleRK( dynamic_cast<RKRecord*>( record ) );
@@ -3374,7 +3430,7 @@ void ExcelReader::handleBoolErr( BoolErrRecord* record )
   Cell* cell = d->activeSheet->cell( column, row, true );
   if( cell )
   {
-    cell->setValue( value );
+    cell->setValue( value , QVariant("BoolErrRecord") );
     cell->setFormat( convertFormat( xfIndex ) );
   }
 }
@@ -3457,7 +3513,7 @@ void ExcelReader::handleLabel( LabelRecord* record )
   Cell* cell = d->activeSheet->cell( column, row, true );
   if( cell )
   {
-    cell->setValue( Value( label ) );
+    cell->setValue( Value( label ) , QVariant("LabelRecord") );
     cell->setFormat( convertFormat( xfIndex ) );
   }
 }
@@ -3609,7 +3665,7 @@ void ExcelReader::handleLabelSST( LabelSSTRecord* record )
   Cell* cell = d->activeSheet->cell( column, row, true );
   if( cell )
   {
-    cell->setValue( Value( str ) );
+    cell->setValue( Value( str ) , QVariant("LabelSSTRecord")  );
     cell->setFormat( convertFormat( xfIndex) );
   }
 }
@@ -3677,7 +3733,7 @@ void ExcelReader::handleMulRK( MulRKRecord* record )
         value.setValue( record->asInteger( i ) );
       else
         value.setValue( record->asFloat( i ) );
-      cell->setValue( value );
+      cell->setValue( value , QVariant("MulRKRecord") );
       cell->setFormat( convertFormat( record->xfIndex( column-firstColumn ) ) );
     }
   }
@@ -3697,7 +3753,7 @@ void ExcelReader::handleNumber( NumberRecord* record )
   Cell* cell = d->activeSheet->cell( column, row, true );
   if( cell )
   {
-    cell->setValue( Value( number ) );
+    cell->setValue( Value( number ) , QVariant("NumberRecord")  );
     cell->setFormat( convertFormat( xfIndex) );
   }
 }
@@ -3741,7 +3797,7 @@ void ExcelReader::handleRK( RKRecord* record )
   Cell* cell = d->activeSheet->cell( column, row, true );
   if( cell )
   {
-    cell->setValue( value );
+    cell->setValue( value , QVariant("RKRecord") );
     cell->setFormat( convertFormat( xfIndex) );
   }
 }
@@ -3780,7 +3836,7 @@ void ExcelReader::handleRString( RStringRecord* record )
   Cell* cell = d->activeSheet->cell( column, row, true );
   if( cell )
   {
-    cell->setValue( Value( label ) );
+    cell->setValue( Value( label ) , QVariant("RStringRecord") );
     cell->setFormat( convertFormat( xfIndex) );
   }
 }
@@ -3793,8 +3849,12 @@ void ExcelReader::handleSST( SSTRecord* record )
   d->stringTable.clear();
   for( unsigned i = 0; i < record->count();i++ )
   {
+	  
+	//////QString xr = QString(record->stringAt( i ));
+	  
     UString str = record->stringAt( i );
     d->stringTable.push_back( str );
+    qDebug() << "ExcelReader::handleSST:in string ->" << str.qstring() << " /line:" << __LINE__;
   }
   
 }

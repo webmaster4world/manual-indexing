@@ -33,7 +33,7 @@ public:
 
   Reader(): res( Ok ){};
   
-  virtual Workbook* load( const char* filename ) = 0;
+  virtual Workbook* loadBaseFile_Key2386R( const char* filename ) = 0;
     
   unsigned result(){ return res; }
   

@@ -56,7 +56,7 @@ int main( int argc, char *argv[])
   
   
   Sidewinder::Workbook* workbook;
-  workbook = reader->load(argv[1]);
+  workbook = reader->loadBaseFile_Key2386R(argv[1]);
   if( !workbook )
   {
     message("#Could not read from file." );
@@ -77,7 +77,8 @@ int main( int argc, char *argv[])
 									if( cell )
 									{
 										  const QVariant data = cell->value().asVariant();
-										  const QString name = cell->name().qstring();  
+										  const QString name = cell->name().qstring()+cell->sender();  
+										  
 										  cout << qPrintable(name) << "@pair@" << qPrintable(data.toString()) << endl;
 									}
 						  }

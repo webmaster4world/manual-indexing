@@ -23,6 +23,8 @@
 #include "ustring.h"
 #include "format.h"
 #include "value.h"
+#include <QVariant>
+
 
 namespace Sidewinder
 {
@@ -54,9 +56,11 @@ public:
   
   Value value() const;
   
-  void setValue( const Value& value );
+  void setValue( const Value& value , QVariant sender ); ////   = QVariant()
   
   Format format() const;
+  
+  QString sender() const;
   
   void setFormat( const Format& format );
   

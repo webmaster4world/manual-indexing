@@ -2681,7 +2681,7 @@ public:
   ExcelReader();
   virtual ~ExcelReader();
   
-  virtual Workbook* load( const char* filename );
+  virtual Workbook* loadBaseFile_Key2386R( const char* filename );
     
 private:
 

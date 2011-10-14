@@ -12,8 +12,8 @@ RCC_DIR	= build/_rcc
 OBJECTS_DIR = build/_obj
 
 
-CONFIG += console
-DEFINES     += QT_NO_WARNING_OUTPUT QT_NO_DEBUG_OUTPUT
+CONFIG += console debug
+#### DEFINES     += QT_NO_WARNING_OUTPUT QT_NO_DEBUG_OUTPUT
 
 # Input
 HEADERS += cell.h \
