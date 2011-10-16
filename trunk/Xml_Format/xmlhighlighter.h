@@ -94,9 +94,16 @@ QMenu *createOwnStandardContextMenu();
 protected:
   void contextMenuEvent ( QContextMenuEvent * e );
   bool event( QEvent *event );
+  bool canInsertFromMimeData( const QMimeData *source ) const;
+  /////void dragEnterEvent(QDragEnterEvent *e);
+  /////void dropEvent(QDropEvent *e);
+  void insertFromMimeData ( const QMimeData * source );
+  bool singlerun;
 private:
   XmlHighlighter *highlight;
+  QStringList urldropincomming;
 signals:
+  void OpenFilesmore(QStringList);
 public slots:
   void Syntaxcheck();
   void setPlainText( const QString txt );
