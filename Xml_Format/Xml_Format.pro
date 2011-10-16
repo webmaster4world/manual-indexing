@@ -15,6 +15,7 @@ QT += xml
 QT += network
 #### QT += sql
 
+CONFIG  += qt console
 
 # Input
 HEADERS += xmlhighlighter.h

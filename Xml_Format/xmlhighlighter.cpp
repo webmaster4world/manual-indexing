@@ -1,7 +1,7 @@
 #include "xmlhighlighter.h"
 
 XMLTextEdit::XMLTextEdit(QWidget *parent)
-  : QTextEdit(parent)
+  : QTextEdit(parent),singlerun(true)
 {
   setViewportMargins(50, 0, 0, 0);
   highlight = new XmlHighlighter(document());
@@ -34,6 +34,86 @@ void XMLTextEdit::opendFile() {
 	
 }
 
+/*
+void XMLTextEdit::dragEnterEvent(QDragEnterEvent *e)
+{
+	
+	
+  e->acceptProposedAction();qDebug() << "### dragEnterEvent in.."; 
+}
+*/
+
+bool XMLTextEdit::canInsertFromMimeData( const QMimeData *source ) const
+ {
+     if (source->hasUrls())
+         return true;
+     else
+         return QTextEdit::canInsertFromMimeData(source);
+ }
+
+
+
+void XMLTextEdit::insertFromMimeData ( const QMimeData * source )
+{
+	qDebug() << "### insertFromMimeData in..";
+	urldropincomming.clear();
+	
+	if (source->hasUrls())   {
+		QList<QUrl> urlelist;
+		     urlelist = source->urls(); 
+               for ( int i = 0; i < urlelist.size(); ++i ) { 
+                   QUrl gettyurl(urlelist.at(i));
+                         if (gettyurl.scheme() == "file") {
+                             QString localfileupsgo = gettyurl.toLocalFile();
+                             urldropincomming.append(localfileupsgo);
+                             if (singlerun) {
+                             opendFile( localfileupsgo );
+						     }
+                         }
+                   
+               }
+	}
+	
+	      if (urldropincomming.size() > 0 && !singlerun) {
+               emit OpenFilesmore(urldropincomming);
+           }
+           
+    QTextEdit::insertFromMimeData(source);
+}
+
+/*
+void XMLTextEdit::dropEvent(QDropEvent *e)
+{
+    urldropincomming.clear();qDebug() << "### dropEvent in.."; 
+    
+    
+    if(e && e->mimeData()) {
+        const QMimeData *data = e->mimeData();
+        QList<QUrl> urlelist;
+           if (data->hasUrls()) {
+                  urlelist = data->urls(); 
+               for ( int i = 0; i < urlelist.size(); ++i ) { 
+                   QUrl gettyurl(urlelist.at(i));
+                         if (gettyurl.scheme() == "file") {
+                             QString localfileupsgo = gettyurl.toLocalFile();
+                             urldropincomming.append(localfileupsgo);
+                             if (singlerun) {
+                             opendFile( localfileupsgo );
+						     }
+                         }
+                   
+               }
+               
+           }
+           if (urldropincomming.size() > 0 && !singlerun) {
+               emit OpenFilesmore(urldropincomming);
+           }
+        
+    }
+        e->acceptProposedAction();
+        /////QTextEdit::dropEvent(e);
+}
+*/
 
 
 bool XMLTextEdit::Conform()
@@ -97,6 +177,7 @@ void XMLTextEdit::contextMenuEvent ( QContextMenuEvent * e )
   QMenu *RContext = createOwnStandardContextMenu();
   RContext->exec(QCursor::pos());
   delete RContext;
+  Q_UNUSED(e);
 }
 
 QMenu *XMLTextEdit::createOwnStandardContextMenu() 
