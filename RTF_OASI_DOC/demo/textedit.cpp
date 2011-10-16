@@ -396,7 +396,7 @@ void TextEdit::drawDoc()
 
 void TextEdit::onRead( int now ,int tot )
 {
-    //////qDebug() << "### reading line -> " << now <<  " t." << tot;
+   qDebug() << "### reading line -> " << now <<  " t." << tot;
     
 }
 
@@ -416,17 +416,19 @@ bool TextEdit::load(const QString &f)
     connect(force, SIGNAL(started()),Ooo,SLOT(read())); 
     connect(Ooo, SIGNAL(ready()), this, SLOT(drawDoc()));
     connect(Ooo, SIGNAL(statusRead(int,int)), this, SLOT(onRead(int,int)));    
-    force->start();
-        
-        
+    force->start(); 
     setCurrentFileName(f);
     return true;
-    } else {
+    } else if (ext ==  "rf") {
+		
+		
+		
+	return true;
+	} else {
    
     QFile file(f);
     if (!file.open(QFile::ReadOnly))
         return false;
-
     QByteArray data = file.readAll();
     QTextCodec *codec = Qt::codecForHtml(data);
     QString str = codec->toUnicode(data);
@@ -436,7 +438,6 @@ bool TextEdit::load(const QString &f)
         str = QString::fromLocal8Bit(data);
         textEdit->setPlainText(str);
     }
-
     setCurrentFileName(f);
     return true;
    }
