@@ -3243,7 +3243,9 @@ const char* filename )
   std::cerr << filename << " filename " << std::endl;
   
   // FIXME
+  qDebug() << "buffer before set 65536:" << stream_size;
   unsigned char buffer[65536];
+  qDebug() << "buffer after set 65536:" << stream_size;
   
   d->workbook = new Workbook();
   
