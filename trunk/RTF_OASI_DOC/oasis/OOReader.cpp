@@ -1247,13 +1247,13 @@ void OOReader::UnknowFormatPaint( const QString name , const QString style_name 
 	if ( style_name == QLatin1String( "table-column" ) ) {
 		/* save column */
 		const qreal width = Unit(e.firstChildElement("style:table-column-properties").attribute("style:column-width"));
-		qDebug() << "### style:table-column-properties  widthwidthwidthwidthwidthwidth  " << width;
+		qDebug() << "### style:table-column-properties  width  " << width;
 
 
 
 		if (css2[name].valid) {
 			if (width > 0) {
-				base.setWidth ( width );
+				base.setWidth ( width * 4.2 );
 				css2[name].of = base;
 			}
 #ifdef _OOREADRELEASE_
@@ -1403,11 +1403,16 @@ void OOReader::convertStyleNameRoot( const QDomElement &element )
 /* table column  format + frame */
 QTextFrameFormat OOReader::FrameFormat( const QString name )
 {
+	
+	qDebug() << "### FrameFormat reconvert ";
+	
 	QTextFrameFormat init;
-	init.setWidth ( -1 );
+	init.setWidth ( 800 );
 	QTextFrameFormat base;
 	if (css2[name].valid) {
-		return css2[name].of.toFrameFormat();
+		QTextFrameFormat baser = css2[name].of.toFrameFormat();
+		qDebug() << "### baser width-> " << baser.width();
+		return baser;
 	}
 	else {
 		return init;
@@ -1485,6 +1490,7 @@ bool OOReader::convertTable( QTextCursor &cur , const QDomElement e  , const int
 		if (!sname.isEmpty()) {
 			/* QTextFrameFormat */
 			cool_wi = FrameFormat(sname).width();
+			
 			if (cool_wi.rawValue() < 1) {
 				cool_wi = QTextLength(QTextLength::PercentageLength,defaultPercents);
 			}
