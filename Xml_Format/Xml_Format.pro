@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = xmlformat
+TARGET = xml
 DEPENDPATH += .
 INCLUDEPATH += .
 
@@ -11,11 +11,16 @@ MOC_DIR	= build/.moc
 RCC_DIR	= build/.rcc
 OBJECTS_DIR = build/.obj
 
+win32:DESTDIR	+= ./
+win32:RC_FILE = win.rc
+
+
 QT += xml
-QT += network
+#### QT += network
 #### QT += sql
 
-CONFIG  += qt console
+CONFIG	+= qt release static
+CONFIG   += warn_off
 
 # Input
 HEADERS += xmlhighlighter.h
