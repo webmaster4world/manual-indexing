@@ -1,0 +1,16 @@
+
+
+# first build lib libcole.a after link the lib on excel_read.pro
+
+# build 
+wget http://download.sf.net/chicago/xlhtml-0.5.tgz
+tar xzvf xlhtml-0.5.tgz
+cd xlhtml-0.5/
+ls -al
+autoreconf -f -i
+./configure
+make
+su -c "make install"
+
+
+# lib is on cole dir!
