@@ -1,0 +1,9 @@
+
+
+
+
+sh bin/zf.sh  create project ./ ticino ticino.ini
+
+
+svn checkout https://manual-indexing.googlecode.com/svn/trunk/ svn --username pehohlva@gmail.com
+
