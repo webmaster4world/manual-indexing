@@ -1,8 +1,0 @@
-AddDefaultCharset UTF-8
-php_value default_charset UTF-8
-ErrorDocument 404 /404
-RewriteEngine on
-RewriteRule !\.(js|ico|gif|jpg|JPG|png|css|html|xml|php|swf|pdf|PDF|zip|ZIP)$ public/index.php
-php_value max_execution_time 90
-php_value upload_max_filesize 16M
-php_value post_max_size 16M
