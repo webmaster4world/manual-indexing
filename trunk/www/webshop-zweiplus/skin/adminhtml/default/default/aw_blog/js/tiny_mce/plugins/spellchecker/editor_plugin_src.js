@@ -335,4 +335,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('spellchecker', tinymce.plugins.SpellcheckerPlugin);
-})();
+})();;

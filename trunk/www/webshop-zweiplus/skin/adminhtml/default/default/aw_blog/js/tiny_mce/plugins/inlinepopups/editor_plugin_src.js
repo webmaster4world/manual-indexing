@@ -630,3 +630,4 @@
 	tinymce.PluginManager.add('inlinepopups', tinymce.plugins.InlinePopups);
 })();
 
+;

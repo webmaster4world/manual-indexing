@@ -436,3 +436,4 @@
 	tinymce.PluginManager.add('safari', tinymce.plugins.Safari);
 })();
 
+;

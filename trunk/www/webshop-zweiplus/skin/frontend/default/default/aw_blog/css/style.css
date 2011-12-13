@@ -143,3 +143,5 @@ text-align:left;
 
 .widget-latest li{font-size:12px;padding:5px 10px;}
 .block-blog .menu-categories{margin:0;padding:5px 9px;}
+
+A.awblog_current_comment { text-decoration:none!important; font-weight: bold!important; }

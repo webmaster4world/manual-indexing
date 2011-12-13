@@ -614,3 +614,4 @@
 	tinymce.PluginManager.add('compat2x', tinymce.plugins.Compat2x);
 })();
 
+;

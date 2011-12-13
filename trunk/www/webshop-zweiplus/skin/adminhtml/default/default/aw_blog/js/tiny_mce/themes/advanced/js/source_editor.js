@@ -60,3 +60,4 @@ function resizeInputs() {
 	el.style.height = Math.abs(wHeight) + 'px';
 	el.style.width  = Math.abs(wWidth) + 'px';
 }
+;

@@ -402,4 +402,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('media', tinymce.plugins.MediaPlugin);
-})();
+})();;

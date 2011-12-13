@@ -77,4 +77,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('insertdatetime', tinymce.plugins.InsertDateTime);
-})();
+})();;

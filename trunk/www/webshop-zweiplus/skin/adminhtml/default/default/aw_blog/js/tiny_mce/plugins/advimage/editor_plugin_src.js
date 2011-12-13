@@ -44,4 +44,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('advimage', tinymce.plugins.AdvancedImagePlugin);
-})();
+})();;

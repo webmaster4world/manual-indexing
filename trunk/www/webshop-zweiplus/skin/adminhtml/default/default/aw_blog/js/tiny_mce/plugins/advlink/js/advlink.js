@@ -526,3 +526,4 @@ function getTargetListHTML(elm_id, target_form_element) {
 // While loading
 preinit();
 tinyMCEPopup.onInit.add(init);
+;

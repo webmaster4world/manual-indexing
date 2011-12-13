@@ -74,3 +74,4 @@ MCTabs.prototype.getAnchor = function() {
 
 // Global instance
 var mcTabs = new MCTabs();
+;

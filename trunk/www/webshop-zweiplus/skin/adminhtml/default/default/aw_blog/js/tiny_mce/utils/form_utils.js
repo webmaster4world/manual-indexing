@@ -197,3 +197,4 @@ function getStyle(elm, attrib, style) {
 
 	return tinyMCEPopup.dom.getStyle(elm, style);
 }
+;

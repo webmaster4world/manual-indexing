@@ -251,3 +251,4 @@ function setCol(e, c) {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

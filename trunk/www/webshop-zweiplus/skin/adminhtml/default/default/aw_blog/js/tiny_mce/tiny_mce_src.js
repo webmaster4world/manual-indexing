@@ -13039,3 +13039,4 @@ var tinyMCE = window.tinyMCE = tinymce.EditorManager;
 		return false; // Run browser command
 	});
 })();
+;

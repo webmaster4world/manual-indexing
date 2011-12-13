@@ -51,4 +51,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('searchreplace', tinymce.plugins.SearchReplacePlugin);
-})();
+})();;

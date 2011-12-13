@@ -114,4 +114,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('bbcode', tinymce.plugins.BBCodePlugin);
-})();
+})();;

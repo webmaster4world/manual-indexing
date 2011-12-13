@@ -229,3 +229,4 @@ function insertInlineElement(en) {
 			dom.replace(dom.create(en, {_mce_new : 1}), n, 1);
 	});
 }
+;

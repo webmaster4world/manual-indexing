@@ -639,3 +639,4 @@ function synch(fr, to) {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

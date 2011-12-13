@@ -47,4 +47,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('preview', tinymce.plugins.Preview);
-})();
+})();;

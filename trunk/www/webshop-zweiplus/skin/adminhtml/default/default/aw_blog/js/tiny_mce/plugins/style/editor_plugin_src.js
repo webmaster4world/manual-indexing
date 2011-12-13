@@ -49,4 +49,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('style', tinymce.plugins.StylePlugin);
-})();
+})();;

@@ -1133,4 +1133,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('table', tinymce.plugins.TablePlugin);
-})();
+})();;

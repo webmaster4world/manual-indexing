@@ -71,4 +71,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('pagebreak', tinymce.plugins.PageBreakPlugin);
-})();
+})();;

@@ -49,3 +49,4 @@ var PasteWordDialog = {
 };
 
 tinyMCEPopup.onInit.add(PasteWordDialog.init, PasteWordDialog);
+;

@@ -71,3 +71,4 @@ function writeEmbed(cls, cb, mt, p) {
 
 	document.write(h);
 }
+;

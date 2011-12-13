@@ -78,4 +78,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('example', tinymce.plugins.ExamplePlugin);
-})();
+})();;

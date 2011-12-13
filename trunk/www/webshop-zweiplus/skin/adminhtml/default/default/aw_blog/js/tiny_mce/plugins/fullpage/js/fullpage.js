@@ -459,3 +459,4 @@ function serializeStyleElement(d) {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

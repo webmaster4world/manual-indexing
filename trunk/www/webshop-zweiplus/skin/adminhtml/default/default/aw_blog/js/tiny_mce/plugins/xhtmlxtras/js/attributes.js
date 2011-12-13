@@ -121,3 +121,4 @@ function insertAttribute() {
 
 tinyMCEPopup.onInit.add(init);
 tinyMCEPopup.requireLangPack();
+;

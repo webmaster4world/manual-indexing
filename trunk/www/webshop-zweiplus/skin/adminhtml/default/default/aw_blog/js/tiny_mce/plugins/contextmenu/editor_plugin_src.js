@@ -92,4 +92,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('contextmenu', tinymce.plugins.ContextMenu);
-})();
+})();;

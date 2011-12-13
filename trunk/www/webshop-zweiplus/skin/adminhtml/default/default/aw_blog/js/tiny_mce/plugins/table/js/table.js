@@ -438,3 +438,4 @@ function changedStyle() {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

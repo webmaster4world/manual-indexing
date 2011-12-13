@@ -509,4 +509,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('paste', tinymce.plugins.PastePlugin);
-})();
+})();;

@@ -210,3 +210,4 @@ function changedColor() {
 }
 
 tinyMCEPopup.onInit.add(init);
+;
