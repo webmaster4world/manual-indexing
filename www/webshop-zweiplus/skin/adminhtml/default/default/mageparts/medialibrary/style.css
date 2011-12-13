@@ -1,0 +1,416 @@
+/**
+ * MageParts
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This code is copyrighted by MageParts and may not be reproduced
+ * and/or redistributed without a written permission by the copyright 
+ * owners. If you wish to modify and/or redistribute this file please
+ * contact us at info@mageparts.com for confirmation before doing
+ * so. Please note that you are free to modify this file for personal
+ * use only.
+ *
+ * If you wish to make modifications to this file we advice you to use
+ * the "local" file scope in order to aviod conflicts with future updates. 
+ * For information regarding modifications see http://www.magentocommerce.com.
+ *  
+ * DISCLAIMER
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE 
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF 
+ * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY 
+ * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ * @category   MageParts
+ * @package    MageParts_MediaLibrary
+ * @copyright  Copyright (c) 2009 MageParts (http://www.mageparts.com/)
+ * @author 	   MageParts Crew
+ */
+
+.head-media-library {
+	background-image:url(i/logo.png);
+	color:#253033 !important;
+	height:80px;
+	display:block;
+	width:180px;
+}
+
+.head-medialibrary-link {
+	margin:3px 0px;
+	display:block;
+}
+
+.head-medialibrary-link-top span {
+	color:#118bc4;
+	text-decoration:none;
+}
+
+.head-medialibrary-link-top:hover span {
+	color:#ea7601;
+	text-decoration:underline;
+}
+
+.media-library-side-col .content-header {
+	 padding:0; 
+}
+	.media-library-side-col .content-header h3 { 
+		float:none; 
+	}
+
+	.media-library-side-col .content-header button { 
+		margin:5px 0 0; 
+	}
+	
+	.media-library-side-col #media-library-filter-container {
+		margin:10px 20px 0 0; 
+		border:1px solid #eae99f; 
+		background:#fdfde7; 
+		padding:10px;
+		margin-bottom:10px;
+	}
+	
+			.media-library-side-col #media-library-filter-container #media-library-filter-list {
+				width:100%;
+				margin-top:5px;
+			}
+			
+	.media-library-side-col #media-library-multi-action-container {
+		margin:10px 20px 0 0; 
+		border:1px solid #a7d7ed; 
+		background:#e9f8fd; 
+		padding:10px;
+		margin-bottom:10px;
+	}
+	
+			.media-library-side-col #media-library-multi-action-container #media-library-multi-action {
+				width:100%;
+				margin-top:5px;
+				margin-bottom:7px;
+			}
+	
+	.media-library-side-col .tree-holder { 
+		margin-right:20px; 
+	}
+	
+
+#media-library-main-col .content-header h3 {
+	color:#253033 !important; 
+}
+
+	
+	
+	
+#action-buttons-use {
+	display:none;
+}
+
+.x-tree-node .image .x-tree-node-icon {
+	background-image:url(i/file-icon-image.gif); 
+}
+
+.x-tree-node .video .x-tree-node-icon {
+	background-image:url(i/file-icon-video.gif); 
+}
+
+.x-tree-node .audio .x-tree-node-icon {
+	background-image:url(i/file-icon-audio.gif); 
+}
+
+.x-tree-node .pdf .x-tree-node-icon {
+	background-image:url(i/file-icon-pdf.gif); 
+}
+
+.x-tree-node .ppt .x-tree-node-icon {
+	background-image:url(i/file-icon-ppt.gif); 
+}
+
+.x-tree-node .doc .x-tree-node-icon {
+	background-image:url(i/file-icon-doc.gif); 
+}
+
+.x-tree-node .rtf .x-tree-node-icon {
+	background-image:url(i/file-icon-rtf.gif); 
+}
+
+.x-tree-node .as .x-tree-node-icon {
+	background-image:url(i/file-icon-as.gif); 
+}
+
+.x-tree-node .swf .x-tree-node-icon {
+	background-image:url(i/file-icon-swf.gif); 
+}
+
+.x-tree-node .txt .x-tree-node-icon {
+	background-image:url(i/file-icon-txt.gif); 
+}
+
+.x-tree-node .xls .x-tree-node-icon {
+	background-image:url(i/file-icon-xls.gif); 
+}
+
+.x-tree-node .compressed .x-tree-node-icon {
+	background-image:url(i/file-icon-compressed.gif); 
+}
+
+#medialibrary-edit-folder #medialibrary-edit-folder-uploader {
+	background:#d7e5ef;
+	padding:5px 10px;
+}
+
+#tree-context-menu {
+	position:absolute;
+	left:0px;
+	top:0px;
+	font-size:10px;
+	border:1px solid #c3c3c3;
+	width:135px;
+	display:none;
+	background:#fff;
+	cursor:default;
+	z-index:10;
+}
+
+#tree-context-menu-shadow {
+	position:absolute;
+	left:0px;
+	top:0px;
+	display:none;
+	background:#000;
+	cursor:default;
+	z-index:1;
+}
+
+#tree-context-menu li {
+	padding: 1px 3px;
+	margin:1px 1px;
+	cursor:pointer;
+	padding-left:22px;
+	padding-right:10px;
+	background-repeat:no-repeat;
+	background-color:#fff;
+	background-position:2px 2px;
+}
+	
+
+/* context menu - trashcan */
+#tree-context-menu li#tree-context-menu-trashcan {
+	background-image:url(i/context-menu-trashcan.gif);
+}
+
+#tree-context-menu li#tree-context-menu-trashcan:hover {
+	background-image:url(i/context-menu-trashcan-hover.gif);
+}
+	
+
+/* context menu - create dir */
+#tree-context-menu li#tree-context-menu-create-dir {
+	background-image:url(i/context-menu-create-dir.gif);
+}
+
+#tree-context-menu li#tree-context-menu-create-dir:hover {
+	background-image:url(i/context-menu-create-dir-hover.gif);
+}
+
+
+/* context menu - collapse */
+#tree-context-menu li#tree-context-menu-collapse {
+	background-image:url(i/context-menu-collapse.gif);
+}
+
+#tree-context-menu li#tree-context-menu-collapse:hover {
+	background-image:url(i/context-menu-collapse-hover.gif);
+}
+	
+
+/* context menu - expand */
+#tree-context-menu li#tree-context-menu-expand {
+	background-image:url(i/context-menu-expand.gif);
+}
+
+#tree-context-menu li#tree-context-menu-expand:hover {
+	background-image:url(i/context-menu-expand-hover.gif);
+}
+
+
+/* context menu - delete */
+#tree-context-menu li#tree-context-menu-delete {
+	background-image:url(i/context-menu-trashcan.gif);
+}
+
+#tree-context-menu li#tree-context-menu-delete:hover {
+	background-image:url(i/context-menu-trashcan-hover.gif);
+}
+
+
+/* context menu - paste */
+#tree-context-menu li#tree-context-menu-paste {
+	background-image:url(i/context-menu-paste.gif);
+}
+
+#tree-context-menu li#tree-context-menu-paste:hover {
+	background-image:url(i/context-menu-paste-hover.gif);
+}
+
+
+/* context menu - copy */
+#tree-context-menu li#tree-context-menu-copy {
+	background-image:url(i/context-menu-copy.gif);
+}
+
+#tree-context-menu li#tree-context-menu-copy:hover {
+	background-image:url(i/context-menu-copy-hover.gif);
+}
+
+
+/* context menu - download */
+#tree-context-menu li#tree-context-menu-download {
+	background-image:url(i/context-menu-download.gif);
+}
+
+#tree-context-menu li#tree-context-menu-download:hover {
+	background-image:url(i/context-menu-download-hover.gif);
+}
+
+
+/* context menu - compress */
+#tree-context-menu li#tree-context-menu-compress {
+	background-image:url(i/context-menu-compress.gif);
+}
+
+#tree-context-menu li#tree-context-menu-compress:hover {
+	background-image:url(i/context-menu-compress-hover.gif);
+}
+
+
+/* context menu - extract */
+#tree-context-menu li#tree-context-menu-extract {
+	background-image:url(i/context-menu-extract.gif);
+}
+
+#tree-context-menu li#tree-context-menu-extract:hover {
+	background-image:url(i/context-menu-extract-hover.gif);
+}
+
+
+/* context menu - use */
+#tree-context-menu li#tree-context-menu-use {
+	background-image:url(i/context-menu-use.gif);
+}
+
+#tree-context-menu li#tree-context-menu-use:hover {
+	background-image:url(i/context-menu-use-hover.gif);
+}
+
+
+
+#tree-context-menu li:hover,
+#tree-context-menu li#tree-context-menu-copy:hover,
+#tree-context-menu li#tree-context-menu-download:hover {
+	background-color:#57b8f0;
+	color:#fff;
+}
+
+#tree-context-menu li.separator {
+	background-color:#c3c3c3;
+	padding:1px 0px 0px 0px;
+}
+
+#medialibrary-tree-options td {
+	height:25px;
+}
+
+.x-tree-node .trashcan .x-tree-node-icon {
+	background-image:url(i/trashcan-icon.gif); 
+}
+
+.x-tree-node .trashcan.empty .x-tree-node-icon {
+	background-image:url(i/trashcan-empty-icon.gif); 
+}
+
+
+/* set a gray text color for disabled nodes */
+.x-tree-node div.disabled {
+	background:#fff !important;
+}
+
+	.x-tree-node .disabled span {
+		background:#fff;
+	}
+
+	.x-tree-node .disabled span,
+	.x-tree-node .disabled.x-tree-selected a span {
+		color:#939393;
+	}
+
+/* content area, headers */
+#media-library-main-col .content-header {
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+}
+
+#media-library-main-col #media-library-folder .content-header {
+	background-image:url(i/icon-folder.gif);
+}
+
+#media-library-main-col #media-library-trashcan .content-header {
+	background-image:url(i/trashcan-icon.gif);
+}
+
+#media-library-main-col #media-library-image .content-header {
+	background-image:url(i/file-icon-image.gif);
+}
+
+#media-library-main-col #media-library-video .content-header {
+	background-image:url(i/file-icon-video.gif);
+}
+
+#media-library-main-col #media-library-audio .content-header {
+	background-image:url(i/file-icon-audio.gif);
+}
+
+#media-library-main-col #media-library-etc .content-header {
+	background-image:url(i/file-icon-etc.gif);
+}
+
+#media-library-main-col #media-library-compressed .content-header {
+	background-image:url(i/file-icon-compressed.gif);
+}
+
+/* content area, form style */
+#media-library-main-col .form-list input.media-library-edit-txt {
+	width:300px;
+}
+
+#media-library-main-col .form-list input.media-library-edit-nbr {
+	width:50px;
+}
+
+	#media-library-main-col .form-list div.constrain-proportions-icon {
+		width:38px;
+		height:40px;
+		position:absolute;
+		background:url(i/content-constrain-proportions-icon.png) no-repeat #fafafa;
+		margin-top:6px;
+		margin-left:6px;
+	}
+
+
+/* uploader */
+#media-library-folder-uploader {
+	padding:11px;
+	background-color:#d7e5ef;
+	border:1px solid #becbd4;
+}
+
+
+/* button styles */
+#media-library-main-col .content-header button.disabled,
+.content-header-floating .content-header button.disabled {
+	display:none;
+}
