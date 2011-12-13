@@ -27,3 +27,4 @@ function mergeCells() {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

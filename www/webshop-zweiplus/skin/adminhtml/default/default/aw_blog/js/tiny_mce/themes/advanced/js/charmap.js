@@ -323,3 +323,4 @@ function previewChar(codeA, codeB, codeN) {
 	elmA.innerHTML = '&amp;' + codeB;
 	elmN.innerHTML = codeN;
 }
+;

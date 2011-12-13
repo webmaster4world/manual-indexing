@@ -23,3 +23,4 @@ function removeAcronym() {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

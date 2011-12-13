@@ -37,4 +37,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('emotions', tinymce.plugins.EmotionsPlugin);
-})();
+})();;

@@ -106,4 +106,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('tabfocus', tinymce.plugins.TabFocusPlugin);
-})();
+})();;

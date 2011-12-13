@@ -628,3 +628,4 @@ function generatePreview(c) {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

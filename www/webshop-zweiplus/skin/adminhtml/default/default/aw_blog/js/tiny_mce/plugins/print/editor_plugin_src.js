@@ -29,3 +29,4 @@
 	// Register plugin
 	tinymce.PluginManager.add('print', tinymce.plugins.Print);
 })();
+;

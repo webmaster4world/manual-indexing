@@ -124,3 +124,4 @@ var SearchReplaceDialog = {
 };
 
 tinyMCEPopup.onInit.add(SearchReplaceDialog.init, SearchReplaceDialog);
+;

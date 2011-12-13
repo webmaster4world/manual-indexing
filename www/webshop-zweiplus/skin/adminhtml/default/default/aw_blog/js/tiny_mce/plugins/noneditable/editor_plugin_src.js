@@ -84,4 +84,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('noneditable', tinymce.plugins.NonEditablePlugin);
-})();
+})();;

@@ -76,4 +76,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('directionality', tinymce.plugins.Directionality);
-})();
+})();;

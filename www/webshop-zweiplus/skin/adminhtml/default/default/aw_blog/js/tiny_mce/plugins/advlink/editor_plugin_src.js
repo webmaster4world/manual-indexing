@@ -55,4 +55,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('advlink', tinymce.plugins.AdvancedLinkPlugin);
-})();
+})();;

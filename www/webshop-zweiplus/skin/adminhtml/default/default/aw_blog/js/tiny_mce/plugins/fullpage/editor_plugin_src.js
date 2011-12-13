@@ -143,4 +143,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('fullpage', tinymce.plugins.FullPagePlugin);
-})();
+})();;

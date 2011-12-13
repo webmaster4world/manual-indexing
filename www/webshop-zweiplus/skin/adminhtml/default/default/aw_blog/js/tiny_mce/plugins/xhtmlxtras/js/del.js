@@ -58,3 +58,4 @@ function removeDel() {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

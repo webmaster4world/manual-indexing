@@ -51,4 +51,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('advhr', tinymce.plugins.AdvancedHRPlugin);
-})();
+})();;

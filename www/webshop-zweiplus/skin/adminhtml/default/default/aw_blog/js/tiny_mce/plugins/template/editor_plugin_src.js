@@ -153,4 +153,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('template', tinymce.plugins.TemplatePlugin);
-})();
+})();;

@@ -95,4 +95,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('save', tinymce.plugins.Save);
-})();
+})();;

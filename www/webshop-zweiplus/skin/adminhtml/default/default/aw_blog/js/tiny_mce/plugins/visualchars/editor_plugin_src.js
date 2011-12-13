@@ -70,4 +70,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('visualchars', tinymce.plugins.VisualChars);
-})();
+})();;

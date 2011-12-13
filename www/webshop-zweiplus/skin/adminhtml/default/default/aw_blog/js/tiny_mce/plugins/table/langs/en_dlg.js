@@ -71,4 +71,4 @@ rules_rhs:"rhs",
 rules_vsides:"vsides",
 rules_box:"box",
 rules_border:"border"
-});
+});;

@@ -48,4 +48,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('iespell', tinymce.plugins.IESpell);
-})();
+})();;

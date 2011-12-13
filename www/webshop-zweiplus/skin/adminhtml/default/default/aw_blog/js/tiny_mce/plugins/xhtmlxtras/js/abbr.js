@@ -23,3 +23,4 @@ function removeAbbr() {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

@@ -57,3 +57,4 @@ function insertInlineElement(en) {
 }
 
 tinyMCEPopup.onInit.add(init);
+;

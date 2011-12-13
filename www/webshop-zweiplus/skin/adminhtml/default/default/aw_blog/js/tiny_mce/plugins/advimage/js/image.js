@@ -441,3 +441,4 @@ var ImageDialog = {
 
 ImageDialog.preInit();
 tinyMCEPopup.onInit.add(ImageDialog.init, ImageDialog);
+;

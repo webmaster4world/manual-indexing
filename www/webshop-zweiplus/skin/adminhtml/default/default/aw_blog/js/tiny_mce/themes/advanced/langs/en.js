@@ -59,4 +59,4 @@ path:"Path",
 newdocument:"Are you sure you want clear all contents?",
 toolbar_focus:"Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X",
 more_colors:"More colors"
-});
+});;

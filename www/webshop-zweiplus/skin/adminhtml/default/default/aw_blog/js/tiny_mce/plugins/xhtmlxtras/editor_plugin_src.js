@@ -133,4 +133,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('xhtmlxtras', tinymce.plugins.XHTMLXtrasPlugin);
-})();
+})();;

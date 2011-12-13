@@ -1150,4 +1150,4 @@
 	});
 
 	tinymce.ThemeManager.add('advanced', tinymce.themes.AdvancedTheme);
-}(tinymce));
+}(tinymce));;

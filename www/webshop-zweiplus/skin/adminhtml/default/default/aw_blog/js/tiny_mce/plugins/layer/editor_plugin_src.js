@@ -206,4 +206,4 @@
 
 	// Register plugin
 	tinymce.PluginManager.add('layer', tinymce.plugins.Layer);
-})();
+})();;
