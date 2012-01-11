@@ -1,0 +1,50 @@
+
+doc>
+http://www.php.net/manual/en/function.ssh2-auth-pubkey-file.php
+
+
+mkdir -p ~/.ssh/
+ssh-keygen -t dsa
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh/
+chmod -R 600 ~/.ssh/*
+
+
+scp .ssh/authorized_keys dev@81.18.25.90:.ssh/authorized_keys
+
+
+
+
+rsa keys may don't work, using dsa keys are more compatible
+
+Linux:
+ssh-keygen -t dsa
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh/
+chmod -R 600 ~/.ssh/*
+
+PHP:
+<?php
+    $methods = array(
+    'kex' => 'diffie-hellman-group1-sha1',
+    'hostkey' => 'ssh-dss',
+    'client_to_server' => array(
+    'crypt' => '3des-cbc',
+    'mac' => 'hmac-md5',
+    'comp' => 'none'),
+    'server_to_client' => array(
+    'crypt' => '3des-cbc',
+    'mac' => 'hmac-md5',
+    'comp' => 'none'));
+    $connect = ssh2_connect('127.0.0.1', 22, $methods);
+    if(ssh2_auth_pubkey_file($connect, 'username', '~/.ssh/id_dsa.pub', '~/.ssh/id_dsa'))
+    {
+        echo "Public Key Authentication Successful\n";
+    }
+    else
+    {
+        echo "Public Key Authentication Failed\n";
+    }
+?>
+
+
