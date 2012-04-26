@@ -1,0 +1,42 @@
+<!--@subject {{var order.getStoreGroupName()}}: Spedizione #{{var shipment.increment_id}} @-->
+
+{{block type="cms/block" block_id="email_css"}}
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+<tr>
+    <td align="center" valign="top">
+        <!-- [ header starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+        <tr>
+            <td valign="top" align="right"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var order.getStoreGroupName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+        </tr>
+        </table>
+
+        <!-- [ middle starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Egregio {{var order.getCustomerName()}}</strong>,<br/>
+
+                    Il tuo ordine #{{var order.increment_id}} e stato<br/>
+                    <strong>{{var order.getStatusLabel()}}</strong>
+                </p>
+                <p>
+                    È possibile controllare lo stato del tuo ordine accedendo al tuo <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">account</a>.
+                </p>
+                <p>{{var comment}}</p>
+                <p>
+                    Se avete domande, non esitare a contattarci all'indirizzo <a href="mailto:christoph.dietiker@toyota.ch" style="color:#1E7EC8;">christoph.dietiker@toyota.ch</a> o per telefono al <span class="nobr">+41 (0)62 788 88 44</span>.
+                </p>
+                <p>
+                    Grazie ancora,<br/><strong>{{var order.getStoreGroupName()}}</strong>
+                </p>
+            </td>
+        </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>

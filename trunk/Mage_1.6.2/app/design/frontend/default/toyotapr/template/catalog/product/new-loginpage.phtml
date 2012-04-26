@@ -1,0 +1,55 @@
+<?php
+/**
+* Magento
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE_AFL.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@magentocommerce.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade Magento to newer
+* versions in the future. If you wish to customize Magento for your
+* needs please refer to http://www.magentocommerce.com for more information.
+*
+* @category    design
+* @package     base_default
+* @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+* @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*/
+?>
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<div class="box recently">
+<h2 class="subtitle"><?php //echo $this->__('New Products') ?></h2>
+<div style="position:relative;">
+<table border="0">
+<tr>
+<?php $i=0;  //// relative
+foreach ($_products->getItems() as $_product):
+$i++;
+////  <span style="padding:4px; margin:4px; border:3px solid #D9D9D9; display:block;" >
+//// height: 100px;    overflow: hidden;
+?>
+<td><var style="padding:4px; margin:4px; border:1px solid White; display:block; width:210px; height:260px;" >
+<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135) ?>" width="135" height="135" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+<p  style="margin-top:8px;"  class="login"><?php echo $this->htmlEscape($_product->getName()) ?></p>
+</var></td>
+<?php if ($i == 3): ?>
+<?php $i=0;     ?>
+</tr>
+<tr>
+<?php endif; ?>
+<?php endforeach; ?>
+</tr>
+</table>
+</div>
+<p style="clear:left"></p>
+</div>
+<?php endif; ?>
+<?php echo "<!--".__FILE__.":".__LINE__."   57FGTZHUJKIOMJNHCDERF  end stamp Thu Apr 26 9:22:08 CEST 2012 file   -->"; ?>

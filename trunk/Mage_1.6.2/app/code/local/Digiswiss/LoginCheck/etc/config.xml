@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Digiswiss_LoginCheck>
+      <version>0.1.0</version>
+    </Digiswiss_LoginCheck>
+  </modules>
+  <global>
+  	<helpers>
+  		<mylogincheck>
+  			<class>Digiswiss_LoginCheck_Helper</class>
+  		</mylogincheck>
+  	</helpers>
+  </global>
+  <frontend>
+  	<events>
+  		<controller_action_layout_load_before>
+  			<observers>
+  				<Digiswiss_LoginCheck_observer>
+  					<type>singleton</type>
+  					<class>Digiswiss_LoginCheck_Helper_Observer</class>
+  					<method>checkLogin</method>
+  				</Digiswiss_LoginCheck_observer>
+  			</observers>
+  		</controller_action_layout_load_before>
+  	</events>
+  </frontend>
+</config>
