@@ -1,0 +1,14 @@
+video, audio {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	border: 1px solid #cccccc;
+	background-color: #fafafa;
+}
+
+video {
+	background-image: url(../img/ldmvideo.png);
+}
+
+audio {
+ 	background-image: url(../img/ldmaudio.png);
+}
