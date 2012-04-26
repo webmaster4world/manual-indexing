@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Digiswiss_Lexuscustomer>
+  		<active>true</active>
+  		<codePool>local</codePool>
+  	</Digiswiss_Lexuscustomer>
+    <Digiswiss_Lexusnewsletter>
+  		<active>true</active>
+  		<codePool>local</codePool>
+	  	 <depends>
+	  		<Mage_Newsletter />
+	 		<Mage_Cms />
+		</depends>
+  	</Digiswiss_Lexusnewsletter>
+    <Digiswiss_LoginCheck>
+  		<active>true</active>
+  		<codePool>local</codePool>
+  	</Digiswiss_LoginCheck>
+    <Digiswiss_Soapsync>
+  		<active>true</active>
+  		<codePool>local</codePool>
+  	</Digiswiss_Soapsync> 
+  </modules>
+</config>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<widgets>
+    <lexusnewsletter_newsletterlink type="lexusnewsletter/newsletterlink" translate="name description" module="catalog">
+        <name>Newsletter Produk Login Link</name>
+        <description type="desc">Generiert einen Produktlink mit Auto-Login für den Newsletter</description>
+        <is_email_compatible>1</is_email_compatible>
+		  <parameters>
+            <id_path translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Product</label>
+                <type>label</type>
+                <helper_block>
+                    <type>adminhtml/catalog_product_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Product...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </id_path>
+            <anchor_text translate="label description">
+                <visible>1</visible>
+                <label>Anchor Custom Text</label>
+                <description>If empty, the Product Name will be used</description>
+                <type>text</type>
+            </anchor_text>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Anchor Custom Title</label>
+                <type>text</type>
+            </title>
+            <life_time translate="label">
+                <visible>1</visible>
+                <label>Link Gültigkeitsdauer in Tagen</label>
+                <type>text</type>  
+                <value>14</value>
+            </life_time>
+            <template translate="label">
+                <label>Template</label>
+                <visible>1</visible>
+                <type>select</type>
+                <value>catalog/product/widget/link/link_block.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>catalog/product/widget/link/link_block.phtml</value>
+                        <label>Product Link Block Template</label>
+                    </default>
+                    <link_inline translate="label">
+                        <value>catalog/product/widget/link/link_inline.phtml</value>
+                        <label>Product Link Inline Template</label>
+                    </link_inline>
+                </values>
+            </template>
+        </parameters>
+    </lexusnewsletter_newsletterlink>
+</widgets> 

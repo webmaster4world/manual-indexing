@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+         <Ld_Duplicatefix>
+            <version>1.0.0</version>
+        </Ld_Duplicatefix>
+    </modules>
+	<global>
+		<models>
+		    <ld_duplicatefix>
+		        <class>Dupfix_Eav_Model_Entity_Collection</class>
+		    </ld_duplicatefix>
+		    <eav_model_entity>		
+		        <rewrite>
+		            <collection_abstract>Dupfix_Eav_Model_Entity_Collection</collection_abstract>
+		        </rewrite>
+		    </eav_model_entity>
+		</models>
+	</global>
+</config>
+		

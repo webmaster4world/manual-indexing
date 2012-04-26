@@ -1,0 +1,41 @@
+<!--@subject {{var order.getStoreGroupName()}}: Commande #{{var order.increment_id}} @-->
+
+{{block type="cms/block" block_id="email_css"}}
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+<tr>
+    <td align="center" valign="top">
+        <!-- [ header starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+        <tr>
+            <td valign="top" align="right"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var order.getStoreGroupName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+        </tr>
+        </table>
+
+        <!-- [ middle starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>Madame, Monsieur {{var order.getCustomerName()}}</strong>,<br/>
+                    Votre commande #{{var order.increment_id}} à été<br/>
+                    <strong>{{var order.getStatusLabel()}}</strong>.
+                </p>
+                <p>
+                    Vous pouvez vérifier l'état de votre commande en vous <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">connectant sur le système</a>.
+                </p>
+                <p>{{var comment}}</p>
+                <p>
+                    Si vous avez encore des questions, veuillez nous contacter par e-mail <a href="mailto:christoph.dietiker@toyota.ch" style="color:#1E7EC8;">christoph.dietiker@toyota.ch</a> ou par téléphone <span class="nobr">+41 (0)62 788 88 44</span>.
+                </p>
+                <p>
+                    <strong>{{var order.getStoreGroupName()}}</strong> dit encore une fois "merci"!
+                </p>
+            </td>
+        </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>
