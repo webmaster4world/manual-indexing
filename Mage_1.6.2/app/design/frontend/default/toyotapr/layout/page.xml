@@ -48,9 +48,7 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>varien/menu.js</script></action>
                 <action method="addJs"><script>mage/translate.js</script></action>
                 <action method="addJs"><script>mage/cookies.js</script></action>
-					
-					 <action method="addItem"><type>skin_js</type><name>js/jquery.min.js</name></action>
-					 <action method="addItem"><type>skin_js</type><name>js/mediaelement-and-player.min.js</name></action>
+
 					 <action method="addItem"><type>skin_js</type><name>js/main.js</name></action>
 					 
 					 <action method="addCss"><stylesheet>css/mediaelementplayer.min.css</stylesheet></action>
