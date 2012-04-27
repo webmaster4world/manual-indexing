@@ -182,7 +182,7 @@ class Ld_Quickactions_IndexController extends Mage_Core_Controller_Front_Action 
 
 					if (Mage::helper('quickactions')->islinkpurchasedbylinkid($fileid)) {						
 							$link = Mage::getModel('downloadable/link')->load($fileid);
-							if (!$zip->addFile(Mage::getBaseDir('media').'/downloadable/files/links'.$link->getLink_file()))
+							if (!$zip->addFile(Mage::getBaseDir('media').'/downloadable/files/links'.$link->getLink_file(), basename($link->getLink_file())))
 								throw new RuntimeException('Can not add file to Archive.');								
 								
 					} else {
