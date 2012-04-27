@@ -43,7 +43,7 @@
 						 	todownload = todownload + '&download_files[' + e.readAttribute('value') + ']=1';
 					 });
 					if (todownload != '')			
-						$('directloader').update('<iframe src="<?php echo $this->getUrl(); ?>quickactions/?action=downloadfileselection' + todownload + '" style="position: absolute; border: 0; background: 0; padding: 0; margin: 0; line-height: 0; width: 0; height: 0;"></iframe>');
+						$('directloader').update('<iframe src="<?php echo $this->getUrl(); ?>quickactions/?action=downloadfs_product' + todownload + '" style="position: absolute; border: 0; background: 0; padding: 0; margin: 0; line-height: 0; width: 0; height: 0;"></iframe>');
 				});
     	  </script>    
     </div>

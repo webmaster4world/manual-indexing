@@ -23,14 +23,23 @@ class Ld_Quickactions_Helper_Data extends Mage_Newsletter_Helper_Data {
 			return $checkoutdownloadlinks;
      }
      
-     // checks if product is already purchased
-     public function islinkpurchased($linkid)  {
-			$tmp = Mage::getSingleton('core/resource')->getConnection('core_read')->fetchRow("SELECT dlpi.link_id FROM ".Mage::getSingleton('core/resource')->getTableName('downloadable_link_purchased_item')." AS dlpi LEFT JOIN ".Mage::getSingleton('core/resource')->getTableName('downloadable_link_purchased')." AS dlp ON dlp.purchased_id = dlpi.purchased_id WHERE dlp.customer_id = :customer AND dlpi.link_id = :link;", array('customer' => Mage::getSingleton('customer/session')->getCustomerId(), 'link' => $linkid));
-                        Mage::log(__METHOD__.' .. return link ->'.$tmp,null,'zip_basket.log');
-                        
-     		if (!empty($tmp))
+     // checks if product is already purchased by link id
+     public function islinkpurchasedbylinkid($linkid)  {
+     
+			$available = Mage::getSingleton('core/resource')->getConnection('core_read')->fetchRow("SELECT dlpi.link_id FROM ".Mage::getSingleton('core/resource')->getTableName('downloadable_link_purchased_item')." AS dlpi LEFT JOIN ".Mage::getSingleton('core/resource')->getTableName('downloadable_link_purchased')." AS dlp ON dlp.purchased_id = dlpi.purchased_id WHERE dlp.customer_id = :customer AND dlpi.link_id = :link;", array('customer' => Mage::getSingleton('customer/session')->getCustomerId(), 'link' => $linkid));
+     		if (!empty($available))
      			return true;
-     		return false;						
+     		return false;					
+     }  
+     
+    // checks if product is already purchased by item id
+     public function getlinkidfromitemid($itemid)  {
+
+			$linkid = Mage::getSingleton('core/resource')->getConnection('core_read')->fetchRow("SELECT dlpi.link_id FROM ".Mage::getSingleton('core/resource')->getTableName('downloadable_link_purchased_item')." AS dlpi WHERE dlpi.item_id = :item;", array('item' => $itemid));
+			$linkid = $linkid['link_id'];
+			if (empty($linkid))
+				return NULL;
+			return $linkid;     
      }  
 }
 
