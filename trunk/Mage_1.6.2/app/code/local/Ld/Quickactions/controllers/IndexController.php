@@ -143,11 +143,29 @@ class Ld_Quickactions_IndexController extends Mage_Core_Controller_Front_Action 
 		}	
 	}
 	
-	// create a archive from file selection, start download
-	public function downloadfileselection() {
-
+	public function downloadfs_product() {
+	
 		// also access via $this->getRequest();
-		$files = ($_POST['download_files']) ? $_POST['download_files'] : $_GET['download_files'];
+		$filestodownload = ($_POST['download_files']) ? $_POST['download_files'] : $_GET['download_files'];
+		$this->downloadfileselection($filestodownload);	
+	}
+	
+	public function downloadfs_downloadable() {
+	
+		// also access via $this->getRequest();
+		$files = ($_POST['download_files']) ? $_POST['download_files'] : $_GET['download_files'];		
+		
+		foreach ($files as $itemid => $check) {
+			
+			$fileid = Mage::helper('quickactions')->getlinkidfromitemid($itemid);
+			if ($fileid !== NULL)
+				$filestodownload[$fileid] = true;					
+		}	
+		$this->downloadfileselection($filestodownload);
+	}
+	
+	// create a archive from file selection, start download
+	public function downloadfileselection($files) {
 
 		if (is_array($files)) {	
 
@@ -161,13 +179,14 @@ class Ld_Quickactions_IndexController extends Mage_Core_Controller_Front_Action 
 					throw new RuntimeException('Can not create temporary Zip file.');				
 
 				foreach($files as $fileid => $check) {
-				
-					if (Mage::helper('quickactions')->islinkpurchased($fileid)) {						
+
+					if (Mage::helper('quickactions')->islinkpurchasedbylinkid($fileid)) {						
 							$link = Mage::getModel('downloadable/link')->load($fileid);
-							if (!$zip->addFile(Mage::getBaseDir('media').'/downloadable/files/links'.$link->getLink_file())) {
+							if (!$zip->addFile(Mage::getBaseDir('media').'/downloadable/files/links'.$link->getLink_file()))
 								throw new RuntimeException('Can not add file to Archive.');								
-							}
+								
 					} else {
+					
 						echo $this->__('One of the Links not purchased');
 						$notpruchased = true;
 					}				
@@ -189,7 +208,12 @@ class Ld_Quickactions_IndexController extends Mage_Core_Controller_Front_Action 
 				echo $this->__($e->getMessage());
 				$this->_redirectUrl(Mage::helper('core/url')->getHomeUrl().'downloadable/customer/products/');	
 			}	
-		}
+			
+		} else {
+		
+			Mage::getSingleton('customer/session')->addError($this->__('Choose file to download, please'));				
+			$this->_redirectUrl(Mage::helper('core/url')->getHomeUrl().'downloadable/customer/products/');	
+		}	
 	}
 	
 	//
