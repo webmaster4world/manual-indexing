@@ -132,8 +132,8 @@ ul,ol         { list-style:none; }
 /* Form Elements */
 input,select,textarea,button { font:12px Arial, Helvetica, sans-serif; vertical-align:middle; color:#000; }
 input.input-text,select,textarea { background:#fff; border:1px solid #ddd; }
-input.input-text,textarea { padding:2px; }
-select { padding:1px; }
+input.input-text,textarea { 	padding:2px; 	background-color:MistyRose;	}
+select { padding:1px; background-color:MistyRose; }
 select option { padding-right:10px; }
 select.multiselect option { border-bottom:1px solid #ddd; padding:2px 5px; }
 select.multiselect option:last-child { border-bottom:0; }
@@ -658,8 +658,8 @@ ul.links {margin:10px 0;}
 .products-grid.last { border-bottom:0; }
 .products-grid li.item { float:left; width:138px; padding:12px 10px 50px; }
 .products-grid .product-image { display:block; width:135px; height:135px; margin:0 0 10px; }
-.products-grid .product-name { margin:0 0 5px; font-weight:bold; font-size:13px; height:100px; overflow:hidden; }
-.products-grid .product-name a {}
+.products-grid .product-name { margin:0 0 5px; font-weight:bold; font-size:11px; height:100px; overflow:hidden; }
+.products-grid .product-name a {  font-size:11px;  }
 .products-grid .price-box { margin:5px 0; }
 .products-grid .availability { line-height:21px; }
 .products-grid .actions { position:absolute; bottom:12px; }
@@ -822,8 +822,7 @@ table.recently-list P.login {padding-right:60px;}
 
 
 .product-view {}
-#directloader_txt { float: right; padding-top: 3px; font-weight: bold; color: #FF0000; }
-#directloader { width: 1px; height: 1px; background: 0; border: 0; }
+#directloader { float: right; padding-top: 3px; font-weight: bold;}
 
 .product-essential {}
 
@@ -1229,4 +1228,3 @@ width:670px;
 * html .col2-right-layout .col-right {
 margin-right:5px;
 }
-
