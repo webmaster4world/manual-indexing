@@ -1,22 +1,17 @@
 <?php
 
-
-
- 
 /* dir separator default on Mage */
 if (!defined('DS')) {
-    define("DS",DIRECTORY_SEPARATOR, false);
+    define("DS", DIRECTORY_SEPARATOR, false);
 }
 
-
 class MediaCheck {
-    
     /* read db table to check all file linked to download   */
 
     const SVersion = '1.01';
 
-    function __construct( $action = 0 ) {
-    $this->baseDir = realpath(dirname(__FILE__)).DS; //////   "C:\Users\pho\Desktop\ToyotaMedia\toyota_full\toyota".DS;  // realpath(dirname(__FILE__)).DS;
+    function __construct($action = 0) {
+        $this->baseDir = realpath(dirname(__FILE__)) . DS; //////   "C:\Users\pho\Desktop\ToyotaMedia\toyota_full\toyota".DS;  // realpath(dirname(__FILE__)).DS;
         if (file_exists('./app/etc/local.xml')) {
             $xml = simplexml_load_file('./app/etc/local.xml');
             $this->tblprefix = $xml->global->resources->db->table_prefix;
@@ -28,48 +23,63 @@ class MediaCheck {
             exit('Failed to open ./app/etc/local.xml');
         }
         $this->ReportMsg = array(); /* report all error if exist   */
-        $this->mediadir = $this->baseDir . DS . 'media' . DS ;
+        $this->mediadir = $this->baseDir . DS . 'media' . DS;
         $this->modus = $action; /* to extend other action */
         $this->connect = @mysql_connect($this->dbhost, $this->dbuser, $this->dbpass);
         if (!$this->connect) {
-            echo "\n\n\nActual: \nhost->".$this->dbhost."  \nuser->".$this->dbuser."  \npass->".$this->dbpass." \n\n";
+            echo "\n\n\nActual: \nhost->" . $this->dbhost . "  \nuser->" . $this->dbuser . "  \npass->" . $this->dbpass . " \n\n";
             die('Fatal error Can\'t connect to the MySQL database! ' . mysql_error() . "file:" . __FILE__ . " line:" . __LINE__);
         }
         $this->swap_db($this->dbname);
         if ($action == 0) {
             /*  only get db file */
-                /* success connect to db subjekt */
-                /* check table link */
-                $this->_follow_link();
+            /* success connect to db subjekt */
+            /* check table link */
+            $this->_follow_link();
         }
         if ($action == 1) {
             /* check all file linked on media dir  */
-            
-            
         }
+	
+	
+	
         $this->report_error();
     }
-    
+
     private function _follow_link() {
         /* todo check file size to get total size dir */
         /* tabelle downloadable_link  &  downloadable_link_purchased_item gleiche query */
-		$path_before = $this->baseDir . media.DS.downloadable.DS.files.DS.links.DS;
-        $allinks = $this->ShellQuery("SELECT distinct  link_file AS item FROM downloadable_link_purchased_item WHERE link_type =  'file' ");
-        if (is_array($allinks)) { 
+        $i = 0;
+        $o = 0;
+        $x = 0;
+        $path_before = $this->baseDir . 'media' . DS . 'downloadable' . DS . 'files' . DS . 'links' . DS;
+        $path_alternate = $this->baseDir . 'media' . DS . 'media' . DS . 'downloadable' . DS . 'files' . DS . 'links' . DS;
+        $allinks = $this->ShellQuery("SELECT product_id AS id,  link_file AS item FROM downloadable_link WHERE link_type =  'file' ");
+        if (is_array($allinks)) {
             ////print_r($allinks);
-			  foreach ($allinks as $val) {
-			          $OSpath = join(DS, explode("/", ltrim($val['item'], "/")));
-			          $file = $path_before . $OSpath ;
-					  if (is_file($file)) {
-                                              echo "File ok-> ".$file . "  \n";
-                                          } else {
-                                              array_push($this->ReportMsg, "NOT_FOUND->" . $file);
-                                          }
-					  
-			  }
-			
+            foreach ($allinks as $val) {
+                $OSpath = join(DS, explode("/", ltrim($val['item'], "/")));
+
+                $file = $path_before . $OSpath;
+                $filealt = $path_alternate . $OSpath;
+
+                if (is_file($file)) {
+                    $i++;
+                    echo "File " . $i . " ok_exist-> " . $file . "  \n";
+                } else {
+                    /* try media/media */
+                    if (is_file($filealt)) {
+                        $x++;
+                        $uriid = '<a href="http://stage.toyota-media.mishost.ch/index.php/admin/catalog_product/edit/id/' . $val['id'] . '/">special media/media ->' . $val['id'] . ' </a>';
+                        array_push($this->ReportMsg,"C-> ".$x." Special: media/media File found  " . $uriid . "-> " . $filealt );
+                    } else {
+                        $o++;
+                        $uriid = '<a href="http://stage.toyota-media.mishost.ch/index.php/admin/catalog_product/edit/id/' . $val['id'] . '/">not found ->' . $val['id'] . ' </a>';
+                        array_push($this->ReportMsg, "C-> " . $o . "  " . $uriid . "->" . $file);
+                    }
+                }
+            }
         }
-        
     }
 
     /**
@@ -80,6 +90,9 @@ class MediaCheck {
         if (!is_array($this->ReportMsg)) {
             return;
         }
+	
+	echo "\n\nError Report....................................................................\n\n";
+	
         foreach ($this->ReportMsg as $msg) {
             echo $msg . "\n";
         }
@@ -94,21 +107,21 @@ class MediaCheck {
 
     /* remake db reset transfer 1.4 to 1.6 mage */
     /*
-    function destroy_db() {
-        $this->swap_db($this->dbname);
-        $file_lines = array();
-        array_push($Rdb_line, "DROP DATABASE IF EXISTS `" . $this->dbname . "`;");
-        array_push($Rdb_line, "CREATE DATABASE `" . $this->dbname . "`;");
-        $this->exec_query($Rdb_line);
-        exec("mysql -u" . $this->dbuser . " -p" . $this->dbpass . " -h" . $this->dbhost . "  " . $this->dbname . " < " . $this->localdump);
-        $this->swap_db($this->dbname);
-        $line = array();
-        array_push($line, "update core_config_data set value = '" . $this->www_hostname . "' where config_id = 11;");
-        array_push($line, "update core_config_data set value = '" . $this->www_hostname . "' where config_id = 12;");
-        array_push($line, "UPDATE `eav_entity_type` SET `attribute_model` = 'customer/attribute', `additional_attribute_table` = 'customer/eav_attribute', `entity_attribute_collection` = 'customer/attribute_collection' WHERE `eav_entity_type`.`entity_type_code` = 'customer';");
-       //// $this->exec_query($line);
-    }
-    */
+      function destroy_db() {
+      $this->swap_db($this->dbname);
+      $file_lines = array();
+      array_push($Rdb_line, "DROP DATABASE IF EXISTS `" . $this->dbname . "`;");
+      array_push($Rdb_line, "CREATE DATABASE `" . $this->dbname . "`;");
+      $this->exec_query($Rdb_line);
+      exec("mysql -u" . $this->dbuser . " -p" . $this->dbpass . " -h" . $this->dbhost . "  " . $this->dbname . " < " . $this->localdump);
+      $this->swap_db($this->dbname);
+      $line = array();
+      array_push($line, "update core_config_data set value = '" . $this->www_hostname . "' where config_id = 11;");
+      array_push($line, "update core_config_data set value = '" . $this->www_hostname . "' where config_id = 12;");
+      array_push($line, "UPDATE `eav_entity_type` SET `attribute_model` = 'customer/attribute', `additional_attribute_table` = 'customer/eav_attribute', `entity_attribute_collection` = 'customer/attribute_collection' WHERE `eav_entity_type`.`entity_type_code` = 'customer';");
+      //// $this->exec_query($line);
+      }
+     */
 
     function ShellQuery($sql) {
         $xrow = array();
@@ -273,23 +286,37 @@ class MediaCheck {
 
 }
 
-$optionAllow = 'check or remcache';
+if (function_exists('apache_get_version')) {
 
-if (count($argv) != 2) {
-    die("Pleas write your action:\nphp " . $argv[0] . " " . $optionAllow . " \n");
-}
+    echo "<pre>\n";
+    $make = new MediaCheck(0);
+    echo "</pre>\n";
+} else {
 
-$moder = strtolower(trim($argv[1]));
 
-switch ($moder) {
-    case "check":
-        $make = new MediaCheck(0); /* only check media links!   */
-        break;
-    case "remcache":
-        $make = new MediaCheck(1);   /* clean cache */
-        break;
-    default;
-        die("Unknow action!  write:\nphp " . $argv[0] . " " . $optionAllow . " \n");
-        break;
+
+
+
+
+
+    $optionAllow = 'check or remcache';
+
+    if (count($argv) != 2) {
+        die("Pleas write your action:\nphp " . $argv[0] . " " . $optionAllow . " \n");
+    }
+
+    $moder = strtolower(trim($argv[1]));
+
+    switch ($moder) {
+        case "check":
+            $make = new MediaCheck(0); /* only check media links!   */
+            break;
+        case "remcache":
+            $make = new MediaCheck(1);   /* clean cache */
+            break;
+        default;
+            die("Unknow action!  write:\nphp " . $argv[0] . " " . $optionAllow . " \n");
+            break;
+    }
 }
 ?>
