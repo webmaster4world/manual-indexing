@@ -16,7 +16,7 @@ class MediaCheck {
     const SVersion = '1.01';
 
     function __construct( $action = 0 ) {
-    $this->baseDir = realpath(dirname(__FILE__));
+    $this->baseDir = realpath(dirname(__FILE__)).DS; //////   "C:\Users\pho\Desktop\ToyotaMedia\toyota_full\toyota".DS;  // realpath(dirname(__FILE__)).DS;
         if (file_exists('./app/etc/local.xml')) {
             $xml = simplexml_load_file('./app/etc/local.xml');
             $this->tblprefix = $xml->global->resources->db->table_prefix;
@@ -38,11 +38,9 @@ class MediaCheck {
         $this->swap_db($this->dbname);
         if ($action == 0) {
             /*  only get db file */
-            if ($this->get_db()) {
                 /* success connect to db subjekt */
                 /* check table link */
                 $this->_follow_link();
-            }
         }
         if ($action == 1) {
             /* check all file linked on media dir  */
@@ -55,9 +53,21 @@ class MediaCheck {
     private function _follow_link() {
         /* todo check file size to get total size dir */
         /* tabelle downloadable_link  &  downloadable_link_purchased_item gleiche query */
+		$path_before = $this->baseDir . media.DS.downloadable.DS.files.DS.links.DS;
         $allinks = $this->ShellQuery("SELECT distinct  link_file AS item FROM downloadable_link_purchased_item WHERE link_type =  'file' ");
         if (is_array($allinks)) { 
-            print_r($allinks);
+            ////print_r($allinks);
+			  foreach ($allinks as $val) {
+			          $OSpath = join(DS, explode("/", ltrim($val['item'], "/")));
+			          $file = $path_before . $OSpath ;
+					  if (is_file($file)) {
+                                              echo "File ok-> ".$file . "  \n";
+                                          } else {
+                                              array_push($this->ReportMsg, "NOT_FOUND->" . $file);
+                                          }
+					  
+			  }
+			
         }
         
     }
@@ -283,13 +293,3 @@ switch ($moder) {
         break;
 }
 ?>
-
-
-
-
-
-
-
-
-
-
