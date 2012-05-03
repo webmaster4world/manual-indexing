@@ -1,0 +1,58 @@
+
+
+
+Mysql export und import optionen.
+
+Viele tabellen von Magento haben "CONSTRAINT"  informationen verbindungen zu andere tabellen.
+Da diese beim einfugen noch nicht da sind und oder unvollstandig sind ist es wichtig mit logik zu dumpen.
+
+Ohne " --databases  "  um zu vermeiden das ganz oben "use database xxx"
+EXPORT:
+mysqldump --user=username --password=pass  dbname | /bin/gzip -9  > full_dump.sql.gz
+
+IMPORT:
+
+erstelle einen text file mit name "start" und schreibe rein:
+
+SET AUTOCOMMIT = 0;
+SET FOREIGN_KEY_CHECKS=0;
+
+
+erstelle einen text file mit name "end" und schreibe rein:
+
+SET FOREIGN_KEY_CHECKS = 1;
+COMMIT;
+SET AUTOCOMMIT = 1;
+
+
+dann im gleichen ordner wo das dump ist, entpacke es;
+-  gunzip full_dump.sql.gz
+und fuge alles zusammen als einen resultat mit dem befehl:
+-  cat start full_dump.sql end > dump.sql
+dann am ende importiere die datenbank mit 
+-  mysql  -uusername -ppass -hlocalhost  dbname1  < dump.sql
+
+im notfall bei error, die fehler unterdrucken:
+-  mysql -f  -uusername -ppass -hlocalhost  dbname1  < dump.sql
+
+
+CONSTRAINT 
+http://dev.mysql.com/doc/refman/5.5/en/innodb-foreign-key-constraints.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
