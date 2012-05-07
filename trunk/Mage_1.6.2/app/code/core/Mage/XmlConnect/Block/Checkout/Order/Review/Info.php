@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_XmlConnect
- * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -55,7 +55,7 @@ class Mage_XmlConnect_Block_Checkout_Order_Review_Info extends Mage_Checkout_Blo
             $itemXml->addChild('entity_id', $item->getProduct()->getId());
             $itemXml->addChild('entity_type', $type);
             $itemXml->addChild('item_id', $item->getId());
-            $itemXml->addChild('name', $itemsXmlObj->escapeXml($renderer->getProductName()));
+            $itemXml->addChild('name', $itemsXmlObj->xmlentities($renderer->getProductName()));
             $itemXml->addChild('qty', $renderer->getQty());
             $icon = $renderer->getProductThumbnail()->resize(
                 Mage::helper('xmlconnect/image')->getImageSizeForContent('product_small')
@@ -169,15 +169,16 @@ class Mage_XmlConnect_Block_Checkout_Order_Review_Info extends Mage_Checkout_Blo
             /**
              * Options list
              */
-            $_options = $renderer->getOptionList();
-            if ($_options) {
+            if ($_options = $renderer->getOptionList()) {
                 $itemOptionsXml = $itemXml->addChild('options');
                 foreach ($_options as $_option) {
                     $_formattedOptionValue = $renderer->getFormatedOptionValue($_option);
                     $optionXml = $itemOptionsXml->addChild('option');
-                    $labelValue = $itemsXmlObj->escapeXml($_option['label']);
+                    $labelValue = $itemsXmlObj->xmlentities($_option['label']);
                     $optionXml->addAttribute('label', $labelValue);
-                    $textValue = $itemsXmlObj->escapeXml($_formattedOptionValue['value']);
+                    $textValue = $itemsXmlObj->xmlentities(
+                        strip_tags($_formattedOptionValue['value'])
+                    );
                     $optionXml->addAttribute('text', $textValue);
                 }
             }

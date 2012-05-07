@@ -4166,7 +4166,6 @@ $tables = array(
 
 $installer->getConnection()->modifyTables($tables);
 
-/*
 $installer->getConnection()->changeColumn(
     $installer->getTable('catalog/product_index_website'),
     'date',
@@ -4176,7 +4175,6 @@ $installer->getConnection()->changeColumn(
         'comment'   => 'Website Date'
     )
 );
-*/
 
 /**
  * Add indexes

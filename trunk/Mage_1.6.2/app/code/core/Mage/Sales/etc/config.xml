@@ -1273,7 +1273,7 @@
                       * @depraceted after 1.4.2, statuses are saved into sales_order_status table
                       */
                 -->
-					<statuses>
+                <statuses>
                     <pending translate="label">
                         <label>Pending</label>
                     </pending>
