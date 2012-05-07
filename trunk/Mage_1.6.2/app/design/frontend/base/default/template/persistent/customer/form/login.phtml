@@ -32,21 +32,19 @@
 */
 /** @var $this Mage_Customer_Block_Form_Login */
 ?>
-<div class="account-login">
+<div class="account-login ">
+<div  style="background-color:White; padding:6px;">
 <div class="page-title">
 <h1><?php echo $this->__('Login or Create an Account') ?></h1>
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
-<div class="col2-set">
-<div class="col-1 new-users">
 <div class="content">
 <h2><?php echo $this->__('New Customers') ?></h2>
 <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
+<div class="buttons-set">
+<button type="button" title="<?php echo $this->__('Create an Account') ?>" class="button" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><span><span><?php echo $this->__('Create an Account') ?></span></span></button>
 </div>
-</div>
-<div class="col-2 registered-users">
-<div class="content">
 <h2><?php echo $this->__('Registered Customers') ?></h2>
 <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
 <ul class="form-list">
@@ -66,30 +64,15 @@
 </ul>
 <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
 <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-</div>
-</div>
-</div>
-<div class="col2-set">
-<div class="col-1 new-users">
 <div class="buttons-set">
-<button type="button" title="<?php echo $this->__('Create an Account') ?>" class="button" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><span><span><?php echo $this->__('Create an Account') ?></span></span></button>
-</div>
-</div>
-<div class="col-2 registered-users">
-<div class="buttons-set">
-<a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
 <button type="submit" class="button" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
 </div>
-</div>
+<div class="buttons-set">
+<a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
 </div>
 <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
 <input name="context" type="hidden" value="checkout" />
 <?php endif; ?>
 </form>
-<script type="text/javascript">
-//<![CDATA[
-var dataForm = new VarienForm('login-form', true);
-//]]>
-</script>
 </div>
-<?php echo "<!--".__FILE__.":".__LINE__."   57FGTZHUJKIOMJNHCDERF  end stamp Thu Apr 26 9:22:12 CEST 2012 file   -->"; ?>
+</div>

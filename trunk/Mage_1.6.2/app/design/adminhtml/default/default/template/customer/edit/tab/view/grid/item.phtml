@@ -29,10 +29,7 @@
 $product = $this->getProduct();
 $options = $this->getOptionList();
 ?>
-
 <h2>Option loop ...........</h2>
-
-
 <?php if (!$options): ?>
 <?php echo $this->escapeHtml($product->getName())?>
 <?php else: ?>
@@ -47,4 +44,3 @@ $options = $this->getOptionList();
 </dl>
 </div>
 <?php endif; ?>
-<?php echo "<!--".__FILE__.":".__LINE__."   57FGTZHUJKIOMJNHCDERF  end stamp Thu Apr 26 9:22:23 CEST 2012 file   -->"; ?>
