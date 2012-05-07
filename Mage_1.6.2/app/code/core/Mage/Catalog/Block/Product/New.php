@@ -35,7 +35,7 @@ class Mage_Catalog_Block_Product_New extends Mage_Catalog_Block_Product_Abstract
 {
     protected $_productsCount = null;
 
-    const DEFAULT_PRODUCTS_COUNT = 6;
+    const DEFAULT_PRODUCTS_COUNT = 5;
 
     /**
      * Initialize block's cache

@@ -36,7 +36,6 @@ class Mage_Adminhtml_Block_Newsletter_Template_Preview extends Mage_Adminhtml_Bl
 
     protected function _toHtml()
     {
-
         /* @var $template Mage_Newsletter_Model_Template */
         $template = Mage::getModel('newsletter/template');
 
@@ -66,7 +65,6 @@ class Mage_Adminhtml_Block_Newsletter_Template_Preview extends Mage_Adminhtml_Bl
         $template->revertDesign();
 
         if($template->isPlain()) {
-        
             $templateProcessed = "<pre>" . htmlspecialchars($templateProcessed) . "</pre>";
         }
 

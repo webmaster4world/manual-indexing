@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_XmlConnect
- * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -42,11 +42,6 @@ class Mage_XmlConnect_Helper_Data extends Mage_Core_Helper_Abstract
      * Message title length
      */
     const MESSAGE_TITLE_LENGTH = 255;
-
-    /**
-     * Curl default timeout
-     */
-    const CURLOPT_DEFAULT_TIMEOUT = 60;
 
     /**
      * List of the keys for xml config that have to be excluded form application config
@@ -427,6 +422,7 @@ class Mage_XmlConnect_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $w3cUrl = 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd';
         return <<<EOT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;$w3cUrl&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -625,13 +621,13 @@ EOT;
         }
 
         try {
-            $applicationId = Mage::getModel('xmlconnect/template')->load($queue->getTemplateId())->getApplicationId();
+            $appCode = $queue->getAppCode();
             /** @var $app Mage_XmlConnect_Model_Application */
-            $app = Mage::getModel('xmlconnect/application')->load($applicationId);
+            $app = Mage::getModel('xmlconnect/application')->loadByCode($appCode);
 
             if (!$app->getId()) {
                 Mage::throwException(
-                    Mage::helper('xmlconnect')->__('Can\'t load application with id "%s"', $applicationId)
+                    Mage::helper('xmlconnect')->__('Can\'t load application with code "%s"', $appCode)
                 );
             }
 
@@ -639,6 +635,8 @@ EOT;
                 $queue->setStatus(Mage_XmlConnect_Model_Queue::STATUS_CANCELED);
                 return;
             }
+
+            $userpwd = $app->getUserpwd();
 
             $sendType = $queue->getData('type');
             switch ($sendType) {
@@ -654,21 +652,29 @@ EOT;
                     break;
             }
 
-            $curl = new Varien_Http_Adapter_Curl();
-            $curl->setConfig($this->_getCurlConfig($app->getUserpwd()));
+            $curlHandler = curl_init(Mage::getStoreConfig($configPath));
 
-            $urbanUrl = Mage::getStoreConfig($configPath);
-            $curl->write(
-                Zend_Http_Client::POST, $urbanUrl, HTTP_REQUEST_HTTP_VER_1_1, $this->getHttpHeaders(), $params
-            );
+            $httpHeaders = $this->getHttpHeaders();
 
-            if ($curl->read() && $curl->getInfo(CURLINFO_HTTP_CODE) == 200) {
+            curl_setopt($curlHandler, CURLOPT_POST, 1);
+            curl_setopt($curlHandler, CURLOPT_HTTPHEADER, $httpHeaders);
+            curl_setopt($curlHandler, CURLOPT_POSTFIELDS, $params);
+            curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curlHandler, CURLOPT_USERPWD, $userpwd);
+            curl_setopt($curlHandler, CURLOPT_TIMEOUT, 60);
+
+            // Execute the request.
+            $result     = curl_exec($curlHandler);
+            $succeeded  = curl_errno($curlHandler) == 0 ? true : false;
+
+            // close cURL resource, and free up system resources
+            curl_close($curlHandler);
+
+            if ($succeeded && (is_null($result) || strtolower($result) == 'null')) {
                 $queue->setStatus(Mage_XmlConnect_Model_Queue::STATUS_COMPLETED);
             }
-            $curl->close();
-
             $queue->setIsSent(true);
-            $queue->save();
+
             return;
         } catch (Exception $e) {
             Mage::logException($e);
@@ -679,23 +685,12 @@ EOT;
     /**
      * Get headers for broadcast message
      *
-     * @return array
+     * @return string
      */
     public function getHttpHeaders()
     {
-        return array('Content-Type: application/json');
-    }
-
-    /**
-     * Get urban airship curl request configuration
-     *
-     * @param string $userPwd
-     * @param int $timeout
-     * @return array
-     */
-    protected function _getCurlConfig($userPwd, $timeout = self::CURLOPT_DEFAULT_TIMEOUT)
-    {
-        return array ('timeout' => $timeout, 'userpwd' => $userPwd);
+        $httpHeaders = array('Content-Type: application/json');
+        return $httpHeaders;
     }
 
     /**
