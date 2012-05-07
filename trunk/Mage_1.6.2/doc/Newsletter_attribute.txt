@@ -1,0 +1,20 @@
+Alles Toyota PR  Lexus ecc…
+Der installer von Digiswiss im 1.6.2 
+Ist buggy 
+app\code\local\Digiswiss\Lexuscustomer\sql\lexuscustomer_setup    mysql4-install-0.1.0.php    
+das liegt daran das der modul installer nicht richtig funktioniert
+
+um die felder bei edit customer sichtbar zu machen braucht es permission im db….
+Damit man die newsletter attribute setzen kann.
+
+Won hand…
+
+INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
+('adminhtml_customer', 511),
+('adminhtml_customer', 512),
+('adminhtml_customer', 513),
+('adminhtml_customer', 514),
+('adminhtml_customer', 515),
+('adminhtml_customer', 516),
+('adminhtml_customer', 517),
+('adminhtml_customer', 518);

@@ -105,23 +105,6 @@ class MediaCheck {
         }
     }
 
-    /* remake db reset transfer 1.4 to 1.6 mage */
-    /*
-      function destroy_db() {
-      $this->swap_db($this->dbname);
-      $file_lines = array();
-      array_push($Rdb_line, "DROP DATABASE IF EXISTS `" . $this->dbname . "`;");
-      array_push($Rdb_line, "CREATE DATABASE `" . $this->dbname . "`;");
-      $this->exec_query($Rdb_line);
-      exec("mysql -u" . $this->dbuser . " -p" . $this->dbpass . " -h" . $this->dbhost . "  " . $this->dbname . " < " . $this->localdump);
-      $this->swap_db($this->dbname);
-      $line = array();
-      array_push($line, "update core_config_data set value = '" . $this->www_hostname . "' where config_id = 11;");
-      array_push($line, "update core_config_data set value = '" . $this->www_hostname . "' where config_id = 12;");
-      array_push($line, "UPDATE `eav_entity_type` SET `attribute_model` = 'customer/attribute', `additional_attribute_table` = 'customer/eav_attribute', `entity_attribute_collection` = 'customer/attribute_collection' WHERE `eav_entity_type`.`entity_type_code` = 'customer';");
-      //// $this->exec_query($line);
-      }
-     */
 
     function ShellQuery($sql) {
         $xrow = array();
