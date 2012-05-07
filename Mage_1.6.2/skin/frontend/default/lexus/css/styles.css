@@ -131,8 +131,8 @@ ul,ol         { list-style:none; }
 /* Form Elements */
 input,select,textarea,button { font:12px Arial, Helvetica, sans-serif; vertical-align:middle; color:#000; }
 input.input-text,select,textarea { background:#fff; border:1px solid #ddd; }
-input.input-text,textarea { padding:2px; }
-select { padding:1px; }
+input.input-text,textarea { 	padding:2px; 	background-color:MistyRose;	}
+select { padding:1px; background-color:MistyRose; }
 select option { padding-right:10px; }
 select.multiselect option { border-bottom:1px solid #ddd; padding:2px 5px; }
 select.multiselect option:last-child { border-bottom:0; }
