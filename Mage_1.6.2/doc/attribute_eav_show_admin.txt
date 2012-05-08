@@ -1,0 +1,26 @@
+SELECT attribute_code FROM eav_attribute WHERE attribute_code LIKE  'ge%'
+
+http://fishpig.co.uk/blog/magento-database-structure-eav.html
+http://www.schmengler-se.de/-magento-15-neue-kundenattribute-im-backend-fomular-sichtbar-machen
+
+SELECT attribute_id, entity_type_id, attribute_code, frontend_label FROM eav_attribute   WHERE  attribute_code = 'news_modelle'; 514
+SELECT attribute_id, entity_type_id, attribute_code, frontend_label FROM eav_attribute   WHERE  attribute_code = 'news_technologie';  515
+SELECT attribute_id, entity_type_id, attribute_code, frontend_label FROM eav_attribute   WHERE  attribute_code = 'news_unternehmen';  516
+SELECT attribute_id, entity_type_id, attribute_code, frontend_label FROM eav_attribute   WHERE  attribute_code = 'news_nachhaltigkeit';  517
+SELECT attribute_id, entity_type_id, attribute_code, frontend_label FROM eav_attribute   WHERE  attribute_code = 'news_events';  518
+
+SELECT * FROM  `customer_eav_attribute` WHERE  `attribute_id` > 513 and  `attribute_id` < 519
+
+
+die result id anpassen von oben resultat!
+
+INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
+('adminhtml_customer', 514),
+('adminhtml_customer', 515),
+('adminhtml_customer', 516),
+('adminhtml_customer', 517),
+('adminhtml_customer', 518);
+
+disable test gendre 524 
+
+SELECT * FROM  `customer_form_attribute`;
