@@ -10,6 +10,10 @@ Ohne " --databases  "  um zu vermeiden das ganz oben "use database xxx"
 EXPORT:
 mysqldump --user=username --password=pass  dbname | /bin/gzip -9  > full_dump.sql.gz
 
+
+
+
+
 IMPORT:
 
 erstelle einen text file mit name "start" und schreibe rein:
@@ -34,6 +38,9 @@ dann am ende importiere die datenbank mit
 
 im notfall bei error, die fehler unterdrucken:
 -  mysql -f  -uusername -ppass -hlocalhost  dbname1  < dump.sql
+
+media_toyota
+
 
 
 CONSTRAINT 
