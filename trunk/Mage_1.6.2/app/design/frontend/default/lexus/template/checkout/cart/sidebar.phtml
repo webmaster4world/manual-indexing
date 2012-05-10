@@ -38,9 +38,9 @@
 <?php if ($_cartQty>0): ?>
 <div class="summary">
 <?php if ($_cartQty==1): ?>
-<p class="amount"><a href="<?php echo $this->getUrl('checkout/cart') ?>">1 <?php echo $this->__('item') ?></a><?php echo $this->__(' in your cart.') ?></p>
+<p class="amount"><a href="<?php echo $this->getUrl(); ?>quickactions/?action=directdownloadcheckout">1 <strong><?php echo $this->__('item') ?></strong></a><?php echo $this->__(' in your cart.') ?></p>
 <?php else: ?>
-<p class="amount"><a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $_cartQty . ' ' . $this->__('items'); ?></a><?php echo $this->__(' in your cart.') ?></p>
+<p class="amount"><a href="<?php echo $this->getUrl(); ?>quickactions/?action=directdownloadcheckout"><?php echo $_cartQty . ' <strong>' . $this->__('items'); ?></strong></a><?php echo $this->__(' in your cart.') ?></p>
 <?php endif ?>
 <p class="subtotal">
 </p>
@@ -48,7 +48,7 @@
 <?php endif ?>
 <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
 <div class="actions">
-<button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+<button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getUrl(); ?>quickactions/?action=directdownloadcheckout')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
 </div>
 <?php endif ?>
 <?php $_items = $this->getRecentItems() ?>

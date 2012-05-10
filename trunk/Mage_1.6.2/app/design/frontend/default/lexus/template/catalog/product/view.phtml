@@ -47,18 +47,15 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 </div>
 <div class="product-shop">
 <div class="product-name">
-<h1><?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name') ?></h1>
+<h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 </div>
-<?php echo $this->getChildHtml('alert_urls') ?>
-<?php //echo $this->getChildHtml('product_type_data') ?>
+<p>&nbsp;</p>
 <?php if (!$this->hasOptions()):?>
 <div class="add-to-box">
 <?php if($_product->isSaleable()): ?>
 <?php echo $this->getChildHtml('addtocart') ?>
 <?php endif; ?>
 </div>
-<?php else:?>
-<?php echo $this->getChildHtml('addto') ?>
 <?php endif; ?>
 <?php if ($_product->getShortDescription()):?>
 <div class="short-description">
