@@ -94,18 +94,6 @@
 <input type="checkbox" name="news_events" title="<?php echo $this->__('Events') ?>" value="1" id="news_events" <?php if($this->getFormData()->getNewsEvents()): ?> checked="checked"<?php endif ?> />
 <label for="news_events"><?php echo $this->__('Events') ?> </label>
 </li>
-<?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-<?php if ($_dob->isEnabled()): ?>
-<li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
-<?php endif ?>
-<?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
-<?php if ($_taxvat->isEnabled()): ?>
-<li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
-<?php endif ?>
-<?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
-<?php if ($_gender->isEnabled()): ?>
-<li><?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?></li>
-<?php endif ?>
 </ul>
 </div>
 <?php //if($this->getShowAddressFields()): ?>
@@ -199,6 +187,10 @@ $('region_id').setAttribute('defaultValue', "<?php echo $this->getFormData()->ge
 </div>
 </li>
 </ul>
+</div>
+<div class="fieldset">
+<!-- <var> CurrentLocaleCode:<?php echo  Mage::app()->getLocale()->getLocaleCode();  ?></var>-->
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('agb'.strtolower(str_replace('_', '', Mage::app()->getLocale()->getLocaleCode())))->toHtml(); ?>
 </div>
 <div class="buttons-set">
 <p class="required"><?php echo $this->__('* Required Fields') ?></p>

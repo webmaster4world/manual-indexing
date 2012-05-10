@@ -36,6 +36,8 @@
 </div>
 <?php echo $this->getChildHtml('pager'); ?>
 <?php if(count($_items)): ?>
+<form action="<?php echo $this->getUrl(); ?>quickactions/?action=downloadfs_downloadable" method="post" class="download-files">
+<input type="hidden" name="thischeckoutdownloads" id="thischeckoutdownloads" value="<?php echo Mage::helper('quickactions')->lastcheckoutpids_html(); ?>" />
 <table class="data-table" id="my-downloadable-products-table">
 <col width="1" />
 <col width="1" />
@@ -47,6 +49,7 @@
 <th><?php echo Mage::helper('downloadable')->__('Date') ?></th>
 <th><?php echo Mage::helper('downloadable')->__('Title') ?></th>
 <th><?php echo Mage::helper('downloadable')->__('Link') ?></th>
+<th><input type="checkbox" name="checkall" value="0" id="checkall" /></th>
 </tr>
 </thead>
 <tbody>
@@ -57,11 +60,29 @@
 <td><span class="nobr"><?php echo $this->formatDate($_item->getPurchased()->getCreatedAt()) ?></span></td>
 <td><?php echo $this->htmlEscape($_item->getPurchased()->getProductName()) ?></td>
 <td><a href="<?php echo $this->getDownloadUrl($_item) ?>" title="<?php echo Mage::helper('downloadable')->__('Start Download') ?>" <?php echo $this->getIsOpenInNewWindow()?'onclick="this.target=\'_blank\'"':''; ?>><?php echo $_item->getLinkTitle() ?></a></td>
+<td><input type="checkbox" name="download_files[<?php echo $_item->getItem_id(); ?>]" value="1" class="pack-todownload todownload-<?php echo $_item->getItem_id(); ?>" /></td>
 </tr>
 <?php endforeach; ?>
 </tbody>
 </table>
-<script type="text/javascript">decorateTable('my-downloadable-products-table')</script>
+<button type="submit" title="" class="button btn-cart"><span><span><?php echo __('Download'); ?></span></span></button>
+</form>
+<script type="text/javascript">
+Event.observe('checkall', 'click', function(event) {
+if (this.checked) {
+$$('.pack-todownload').each(function(e){ e.checked = 'checked'; });
+} else {
+$$('.pack-todownload').each(function(e){ e.checked = ''; });
+}
+});
+document.observe('dom:loaded', function() {
+$('thischeckoutdownloads').readAttribute('value').split(',').each(function(e) {
+if (e.length > 0)
+$$('[name="download_files[' + e + ']"]').each(function(e){ e.checked = 'checked'; });
+});
+});
+decorateTable('my-downloadable-products-table');
+</script>
 <?php else: ?>
 <p><?php echo Mage::helper('downloadable')->__('You have not purchased any downloadable products yet.'); ?></p>
 <?php endif; ?>

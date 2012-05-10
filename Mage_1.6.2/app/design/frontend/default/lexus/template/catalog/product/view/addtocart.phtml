@@ -27,6 +27,24 @@
 <?php $_product = $this->getProduct() ?>
 <?php if($_product->isSaleable()): ?>
 <div class="add-to-cart">
+<?php if(!$_product->isGrouped()): ?>
+<label for="qty"><?php echo $this->__('Qty:') ?></label>
+<input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getMinimalQty($_product) ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+<?php endif; ?>
 <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="productAddToCartForm.submit()"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+<button type="button" title="<?php echo $this->__('Direct Download') ?>" class="button" id="btn-ddl"><span><span><?php echo $this->__('Direct Download') ?></span></span></button>
+<div id="directloader_txt"><?php echo $this->__('Notice that a direct download is only possible if you purchased the link'); ?></div>
+<div id="directloader">&nbsp;</div>
+<script type="text/javascript">
+Event.observe('btn-ddl', 'click', function(event) {
+var todownload = '';
+$$('.product-downloadable-link').each(function(e) {
+if (e.checked)
+todownload = todownload + '&download_files[' + e.readAttribute('value') + ']=1';
+});
+if (todownload != '')
+$('directloader').update('<iframe src="<?php echo $this->getUrl(); ?>quickactions/?action=downloadfs_product' + todownload + '" style="position: absolute; border: 0; background: 0; padding: 0; margin: 0; line-height: 0; width: 0; height: 0;"></iframe>');
+});
+</script>
 </div>
 <?php endif; ?>

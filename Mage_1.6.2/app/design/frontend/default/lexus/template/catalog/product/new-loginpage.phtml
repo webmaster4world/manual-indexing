@@ -27,22 +27,28 @@
 <?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
 <div class="box recently">
 <h2 class="subtitle"><?php //echo $this->__('New Products') ?></h2>
-<table cellspacing="0" class="recently-list" id="new-products-list-table">
+<div style="position:relative;">
+<table border="0">
 <tr>
-<?php $i=0; foreach ($_products->getItems() as $_product): ?>
-<?php if ($i>5): continue; endif; ?>
-<td>
-<div>
+<?php $i=0;  //// relative
+foreach ($_products->getItems() as $_product):
+$i++;
+////  <span style="padding:4px; margin:4px; border:3px solid #D9D9D9; display:block;" >
+//// height: 100px;    overflow: hidden;
+?>
+<td><var style="padding:4px; margin:4px; border:1px solid White; display:block; width:210px; height:260px;" >
 <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135) ?>" width="135" height="135" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
-</div>
-<p class="login"><?php echo $this->htmlEscape($_product->getName()) ?></p>
-</td>
-<?php if ($i == 2) echo "</tr><tr>" ?>
-<?php $i++; endforeach; ?>
-<?php for($i;$i%3!=0;$i++): ?>
-<td>&nbsp;</td>
-<?php endfor ?>
+<p  style="margin-top:8px;"  class="login"><?php echo $this->htmlEscape($_product->getName()) ?></p>
+</var></td>
+<?php if ($i == 3): ?>
+<?php $i=0;     ?>
+</tr>
+<tr>
+<?php endif; ?>
+<?php endforeach; ?>
 </tr>
 </table>
+</div>
+<p style="clear:left"></p>
 </div>
 <?php endif; ?>

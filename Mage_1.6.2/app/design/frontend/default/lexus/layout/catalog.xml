@@ -48,7 +48,7 @@ Default layout, loads most of the pages
         <reference name="top.menu">
             <block type="catalog/navigation" name="catalog.topnav" template="catalog/navigation/top.phtml"/>
         </reference>
-            <!--
+        <!--
         <reference name="left">
             <block type="core/template" name="left.permanent.callout" template="callouts/left_col.phtml">
                 <action method="setImgSrc"><src>images/media/col_left_callout.jpg</src></action>
@@ -58,14 +58,18 @@ Default layout, loads most of the pages
         </reference>
         <reference name="right">
             <block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
-            <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml"/>
+            <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
+                <action method="setImgSrc"><src>images/media/col_right_callout.jpg</src></action>
+                <action method="setImgAlt" translate="alt" module="catalog"><alt>Keep your eyes open for our special Back to School items and save A LOT!</alt></action>
+            </block>
         </reference>
         -->
+        <reference name="right">
+        		<remove name="right.reports.product.viewed" />
+            <block type="reports/product_viewed" name="left.reports.product.viewed" after="cart_sidebar" template="reports/product_viewed.phtml" />
+        </reference>
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="catalog" ifconfig="catalog/seo/site_map"><label>Site Map</label><url helper="catalog/map/getCategoryUrl" /><title>Site Map</title></action>
-            <action method="addLink" translate="label title" module="catalog"><label>Links</label><url>/Links</url><title>Links</title></action>
-            <action method="addLink" translate="label title" module="catalog"><label>Help</label><url>/hilfe-seite</url><title>Help</title></action>
-            <action method="addLink" translate="label title" module="catalog"><label>My Downloads</label><url>/downloadable/customer/products</url><title>My Downloads</title></action>
         </reference>
         <block type="catalog/product_price_template" name="catalog_product_price_template" />
     </default>
@@ -84,7 +88,10 @@ Category default layout
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
-                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                        <!-- <action method="addAttribute"><attribute>shot_type</attribute></action>
+                        <action method="addAttribute"><attribute>file_type</attribute></action>
+                        <action method="addAttribute"><attribute>media_type</attribute></action>-->
+                       <block type="page/html_pager" name="product_list_toolbar_pager"/>
                         <!-- The following code shows how to set your own pager increments -->
                         <!--
                             <action method="setDefaultListPerPage"><limit>4</limit></action>
@@ -134,7 +141,7 @@ Category layered navigation layout
                             <action method="addPagerLimit"><mode>grid</mode><limit>3</limit></action>
                             <action method="addPagerLimit"><mode>grid</mode><limit>6</limit></action>
                             <action method="addPagerLimit"><mode>grid</mode><limit>9</limit></action>
-                            <action method="addPagerLimit"><mode>grid</mode><limit>all</limit><label>All</label></action>
+                            <action method="addPagerLimit" translate="label"><mode>grid</mode><limit>all</limit><label>All</label></action>
                         -->
                     </block>
                     <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
@@ -150,10 +157,6 @@ Category layered navigation layout
 
     <catalog_category_layered_nochildren translate="label">
         <label>Catalog Category (Without Subcategories)</label>
-        <remove name="right.reports.product.viewed" />
-        <reference name="right">
-            <block type="reports/product_viewed" before="right.permanent.callout" name="left.reports.product.viewed" template="reports/product_viewed.phtml" />
-        </reference>
     </catalog_category_layered_nochildren>
 
 <!--
@@ -258,8 +261,8 @@ Product view
                 <action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
             </block>
         </reference>
-        <reference name="right">
-            <block type="catalog/product_list_related" name="catalog.product.related" before="-" template="catalog/product/list/related.phtml"/>
+        <reference name="right">		
+           <block type="catalog/product_list_related" name="catalog.product.related" after="cart_sidebar" template="catalog/product/list/related.phtml"/>
         </reference>
     </catalog_product_view>
 
@@ -411,7 +414,7 @@ Catalog search terms block
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
-            <block type="catalog/seo_searchterm" name="seo.searchterm" template="catalog/seo/searchterm.phtml"/>
+            <block type="catalog/seo_searchterm" name="seo.searchterm" before="+" template="catalog/seo/searchterm.phtml"/>
         </reference>
     </catalog_seo_searchterm_popular>
 
