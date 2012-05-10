@@ -1,3 +1,16 @@
+
+
+core hack von 5 auf 6 stellen
+
+class Mage_Catalog_Block_Product_New extends Mage_Catalog_Block_Product_Abstract
+{
+    protected $_productsCount = null;
+
+    const DEFAULT_PRODUCTS_COUNT = 6;
+
+
+
+
 Alles Toyota PR  Lexus ecc…
 Der installer von Digiswiss im 1.6.2 
 Ist buggy 

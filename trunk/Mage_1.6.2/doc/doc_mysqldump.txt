@@ -11,7 +11,7 @@ EXPORT:
 mysqldump --user=username --password=pass  dbname | /bin/gzip -9  > full_dump.sql.gz
 
 
-
+alpiq_marketingportal
 
 
 IMPORT:
