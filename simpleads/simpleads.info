@@ -1,26 +1,29 @@
 name = "SimpleAds"
-description = "Advertisements"
+description = "An advertising system."
 package = "SimpleAds"
 core = "7.x"
 
-scripts[] = simpleads.js
-stylesheets[all][] = simpleads.css
+files[] = "includes/views/views_handler_field_ad_link_stats.inc"
+files[] = "includes/views/views_simpleads_plugin.inc"
 
-files[] = includes/views_simpleads_plugin.inc
+stylesheets[all][] = "css/simpleads.css"
 
-dependencies[] = taxonomy
-dependencies[] = field
-dependencies[] = options
-dependencies[] = list
-dependencies[] = field_sql_storage
-dependencies[] = file
-dependencies[] = image
-dependencies[] = text
-; Information added by drupal.org packaging script on 2013-01-18
-; 1336020091  
-; 1358479988  
-version = "7.x-1.8+17-dev"
+dependencies[] = "taxonomy"
+dependencies[] = "field"
+dependencies[] = "options"
+dependencies[] = "list"
+dependencies[] = "file"
+dependencies[] = "image"
+dependencies[] = "text"
+
+dependencies[] = "libraries"
+dependencies[] = "date"
+dependencies[] = "date_popup"
+dependencies[] = "date_views"
+dependencies[] = "link"
+; Information added by drupal.org packaging script on 2013-05-25
+version = "7.x-2.x-dev"
 core = "7.x"
 project = "simpleads"
-datestamp = "1358479988"
+datestamp = "1369453578"
 
