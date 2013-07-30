@@ -6,94 +6,36 @@
  */
 
 /**
- * Describe SimpleAds block order types
+ * Implements hook_insert_click().
  */
-function hook_simpleads_order_info() {
-  return array(
-    'delta_1' => t('Random order example'),
-  );
+function hook_insert_click($node, $ip_address) {
+
 }
 
 /**
- * Build SQL Query to order SimpleAds in blocks.
- *
- * @param string $delta
- * @param array $term_ids
- * @param int $limit
- * @return type
+ * Implements hook_insert_impression().
  */
-function hook_simpleads_order($delta, $term_ids, $limit) {
-  if ($delta == 'delta_1') {
-    $query = db_select('node', 'n');
-    $query->join('taxonomy_index', 'ti', 'n.nid = ti.nid');
-    $query->fields('n', array('nid'));
-    $query->condition('n.type', 'simpleads');
-    $query->condition('n.status', 1);
-    $query->condition('ti.tid', $term_ids, 'IN');
-    $query->orderRandom();
-    $query->range(0, $limit);
-    return $query->execute();
-  }
+function hook_insert_impression($node, $ip_address) {
+
 }
 
 /**
- * Add additional infromation to Ads listing and Ad statistics page.
- *
- * @param object $node
- * @param string $op
- *  - list
- *  - detail
- *  - ad_group
- *  - ad_status
- *  - ad_status_detail
+ * Implements hook_ad_activate().
  */
-function hook_simpleads_stats_info($node, $op) {
-  if ($op == 'list') {
-    return array('Item on the ads listing page');
-  }
+function hook_ad_activate($node) {
+
 }
 
 /**
- * SimpleAd node status change (during cron).
- *
- * @param object $node
- * @param bolean $status
+ * Implements hook_ad_expired().
  */
-function hook_simpleads_status_change($node, $status = NULL) {}
+function hook_ad_expired($node) {
+
+}
 
 /**
- * Alter SimpleAd output.
- *
- * @param array $data
+ * Implements hook_ad_types_alter().
  */
-function hook_simpleads_alter(&$data) {}
+function hook_ad_types_alter(&$types) {
 
-/**
- * Redirect ad to its destination
- *
- * @param string $url
- * @param string $delta
- */
-function hook_simpleads_redirect($url, $delta) {}
-
-/**
- * Ad Clicked.
- *
- * @param string $op
- * - insert
- * - delete
- *
- * @param object $node
- */
-function hook_simpleads_ad_click($op, $node) {}
-
-/**
- * Ad Impressed.
- *
- * @param string $op
- * - insert
- * - delete
- *
- * @param object $node
- */
-function hook_simpleads_ad_impression($op, $node) {}
+}
